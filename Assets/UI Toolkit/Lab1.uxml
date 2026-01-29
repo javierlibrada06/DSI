@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/header_StyleSheet.uss?fileID=7433441132597879392&amp;guid=1faee905be2227a4abbb5b496a104f49&amp;type=3#header_StyleSheet" />
+    <Style src="project://database/Assets/UI%20Toolkit/body_StyleSheet.uss?fileID=7433441132597879392&amp;guid=96a1da1b0c9cf51448a718698f4bf468&amp;type=3#body_StyleSheet" />
+    <ui:VisualElement name="header" class="header" />
+    <ui:VisualElement name="body" style="flex-grow: 1; background-color: rgb(168, 0, 99); justify-content: space-between; flex-direction: row;">
+        <ui:VisualElement name="item1" class="item" />
+        <ui:VisualElement name="item2" class="item" />
+        <ui:VisualElement name="item3" class="item" />
+    </ui:VisualElement>
+    <ui:VisualElement name="footer" style="flex-grow: 1; background-color: rgb(255, 238, 136); border-left-color: rgb(192, 154, 64); border-right-color: rgb(192, 154, 64); border-top-color: rgb(192, 154, 64); border-bottom-color: rgb(192, 154, 64); border-left-width: 20px; border-right-width: 20px; border-top-width: 20px; border-bottom-width: 20px; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px;" />
+</ui:UXML>

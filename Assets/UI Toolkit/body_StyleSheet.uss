@@ -1,0 +1,16 @@
+.item {
+    flex-grow: 1;
+    background-color: rgb(108, 236, 118);
+    border-left-color: rgb(17, 144, 27);
+    border-right-color: rgb(17, 144, 27);
+    border-top-color: rgb(17, 144, 27);
+    border-bottom-color: rgb(17, 144, 27);
+    border-left-width: 20px;
+    border-right-width: 20px;
+    border-top-width: 20px;
+    border-bottom-width: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
