@@ -1,0 +1,23 @@
+.footer {
+    flex-grow: 1;
+    background-color: rgb(255, 238, 136);
+    border-left-color: rgb(192, 154, 64);
+    border-right-color: rgb(192, 154, 64);
+    border-top-color: rgb(192, 154, 64);
+    border-bottom-color: rgb(192, 154, 64);
+    border-left-width: 10px;
+    border-right-width: 10px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 25%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+}
