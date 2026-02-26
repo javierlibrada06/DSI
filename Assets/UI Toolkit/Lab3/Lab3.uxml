@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Lab3/Lab3b.uss?fileID=7433441132597879392&amp;guid=38099c725105c024f8e373911ecc6663&amp;type=3#Lab3b" />
+    <ui:VisualElement name="ContenedorPadre" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+        <ui:VisualElement name="Izquierda" class="container">
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Derecha" class="container">
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+            <ui:VisualElement name="Item" class="item" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
