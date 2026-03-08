@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="StatsContainer" class="stat-container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 100%;">
+        <ui:Label tabindex="-1" text="Nombre de la variable" display-tooltip-when-elided="true" name="Name" class="stat-label" />
+        <ui:VisualElement name="Icons" class="stat-container-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 80%;">
+            <ui:VisualElement name="Icon" class="stat-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+            <ui:VisualElement name="Icon" class="stat-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+            <ui:VisualElement name="Icon" class="stat-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+            <ui:VisualElement name="Icon" class="stat-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+            <ui:VisualElement name="Icon" class="stat-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+            <ui:VisualElement name="Icon" class="stat-icon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
