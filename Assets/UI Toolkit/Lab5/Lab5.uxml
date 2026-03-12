@@ -1,0 +1,38 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Lab5/Lab5.uss?fileID=7433441132597879392&amp;guid=cba9b0a8428df1e479426bbde8a42479&amp;type=3#Lab5" />
+    <ui:VisualElement name="Container" class="container">
+        <ui:VisualElement name="Left" class="left">
+            <ui:VisualElement name="PhotoContainer" class="photoContainer">
+                <ui:VisualElement name="Photo" class="photo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/images/Frame%203.png?fileID=2800000&amp;guid=565c52550241c844bba4fabbf80fecbb&amp;type=3#Frame 3&apos;);" />
+                <ui:VisualElement name="Photo" class="photo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/images/Frame%204.png?fileID=2800000&amp;guid=8c068306043096f4dba4faab70543eef&amp;type=3#Frame 4&apos;);" />
+                <ui:VisualElement name="Photo" class="photo" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%; -unity-background-scale-mode: scale-to-fit; background-image: url(&apos;project://database/Assets/images/Frame%201.png?fileID=2800000&amp;guid=036a21925ef7d7743858c171a6780848&amp;type=3#Frame 1&apos;);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Form" class="form">
+                <ui:TextField picking-mode="Ignore" label="Name" value="filler text" name="inputName" class="textField" style="font-size: 50%;" />
+                <ui:TextField picking-mode="Ignore" label="Surname" value="filler text" name="inputSurname" class="textField" style="font-size: 50%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Right" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 50%; height: 100%; flex-direction: row; align-items: flex-start; flex-wrap: wrap;">
+            <ui:VisualElement name="Tarjeta" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 50%; height: 50%;">
+                <ui:VisualElement name="profilePhoto" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 50%; background-image: url(&apos;project://database/Assets/images/Frame%203.png?fileID=2800000&amp;guid=565c52550241c844bba4fabbf80fecbb&amp;type=3#Frame 3&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                <ui:Label tabindex="-1" text="Name" display-tooltip-when-elided="true" name="name" class="info" style="font-size: 15%; -unity-text-align: upper-center;" />
+                <ui:Label tabindex="-1" text="Surname" display-tooltip-when-elided="true" name="surname" style="width: 100%; height: 30%; -unity-text-align: middle-center; font-size: 15%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Tarjeta" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 50%; height: 50%;">
+                <ui:VisualElement name="profilePhoto" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 50%; background-image: url(&apos;project://database/Assets/images/Frame%203.png?fileID=2800000&amp;guid=565c52550241c844bba4fabbf80fecbb&amp;type=3#Frame 3&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                <ui:Label tabindex="-1" text="Name" display-tooltip-when-elided="true" name="name" class="info" style="font-size: 15%; -unity-text-align: upper-center;" />
+                <ui:Label tabindex="-1" text="Surname" display-tooltip-when-elided="true" name="surname" style="width: 100%; height: 30%; -unity-text-align: middle-center; font-size: 15%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Tarjeta" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 50%; height: 50%;">
+                <ui:VisualElement name="profilePhoto" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 50%; background-image: url(&apos;project://database/Assets/images/Frame%203.png?fileID=2800000&amp;guid=565c52550241c844bba4fabbf80fecbb&amp;type=3#Frame 3&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                <ui:Label tabindex="-1" text="Name" display-tooltip-when-elided="true" name="name" class="info" style="font-size: 15%; -unity-text-align: upper-center;" />
+                <ui:Label tabindex="-1" text="Surname" display-tooltip-when-elided="true" name="surname" style="width: 100%; height: 30%; -unity-text-align: middle-center; font-size: 15%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Tarjeta" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 50%; height: 50%;">
+                <ui:VisualElement name="profilePhoto" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 50%; background-image: url(&apos;project://database/Assets/images/Frame%203.png?fileID=2800000&amp;guid=565c52550241c844bba4fabbf80fecbb&amp;type=3#Frame 3&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                <ui:Label tabindex="-1" text="Name" display-tooltip-when-elided="true" name="name" class="info" style="font-size: 15%; -unity-text-align: upper-center;" />
+                <ui:Label tabindex="-1" text="Surname" display-tooltip-when-elided="true" name="surname" style="width: 100%; height: 30%; -unity-text-align: middle-center; font-size: 15%;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
