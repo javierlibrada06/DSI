@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Tarjeta" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 250px; height: 500%;">
+        <ui:VisualElement name="profilePhoto" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 50%; background-image: url(&apos;project://database/Assets/images/Frame%203.png?fileID=2800000&amp;guid=565c52550241c844bba4fabbf80fecbb&amp;type=3#Frame 3&apos;); -unity-background-scale-mode: scale-to-fit; align-items: center; align-self: center;" />
+        <ui:Label tabindex="-1" text="Name" display-tooltip-when-elided="true" name="name" class="info" style="font-size: 15%; -unity-text-align: middle-center; width: 100%; height: 15%;" />
+        <ui:Label tabindex="-1" text="Surname" display-tooltip-when-elided="true" name="surname" style="width: 100%; height: 15%; -unity-text-align: middle-center; font-size: 15%;" />
+    </ui:VisualElement>
+</ui:UXML>

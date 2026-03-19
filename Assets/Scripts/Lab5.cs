@@ -1,61 +1,48 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using DSI.Lab5;
 using System.Linq;
 using System;
+using Lab6_namespace;
 
 public class Lab5 : MonoBehaviour
 {
     public List<Sprite> misFotos;
+
+    public VisualTreeAsset tarjetaTemplate;
 
     List<VisualElement> tarjetaVisual = new List<VisualElement>();
     List<Tarjeta> logicaTarjeta = new List<Tarjeta>();
     List<Individuo> usuario = new List<Individuo>();
     TextField inputNombre;
     TextField inputApellido;
+    Button create;
+    Button change;
+    VisualElement derecha;
     int current = 0;
+    string currentName;
+    string currentSurname;
+    Sprite currentPhoto;
 
     private void OnEnable()
     {
+        CargarJSON();
         var root = GetComponent<UIDocument>().rootVisualElement;
 
-        VisualElement derecha = root.Q("Right");
+
+        derecha = root.Q("Right");
         inputNombre = root.Q<TextField>("inputName");
         inputApellido = root.Q<TextField>("inputSurname");
+        create = root.Q<Button>("create");
+        change = root.Q<Button>("change");
 
-        // 1. Obtener los elementos visuales
-        tarjetaVisual = derecha.Children().ToList();
-
-        // Limpiar listas por si acaso
-        logicaTarjeta.Clear();
-        usuario.Clear();
-
-        // 2. Bucle correcto (sin el -1)
-        for (int i = 0; i < tarjetaVisual.Count; i++)
+        for (int i = 0; i < usuario.Count; i++)
         {
-            // USAR .Add() en lugar de lista[i]
-            logicaTarjeta.Add(new Tarjeta(tarjetaVisual[i]));
-            usuario.Add(new Individuo("Name", "Surname", misFotos.Count > 0 ? misFotos[0] : null));
-
-            // Guardamos el índice i en el userData de la tarjeta física
-            tarjetaVisual[i].userData = i;
-
-            logicaTarjeta[i].Actualizar(usuario[i]);
-
-            // Al pulsar, recuperamos el índice desde el userData
-            tarjetaVisual[i].RegisterCallback<PointerDownEvent>(ev => {
-                VisualElement t = ev.currentTarget as VisualElement;
-                current = (int)t.userData;
-
-                // Actualizar inputs con los datos de LA tarjeta pulsada
-                inputNombre.SetValueWithoutNotify(usuario[current].nombre);
-                inputApellido.SetValueWithoutNotify(usuario[current].apellido);
-                Debug.Log("Editando tarjeta: " + current);
-            });
+            CrearTarjeta(usuario[i]);
         }
 
-        // 3. Galería
+        // 3. GalerÃ­a
         VisualElement contenedorGaleria = root.Q("PhotoContainer");
         if (contenedorGaleria != null)
         {
@@ -74,15 +61,21 @@ public class Lab5 : MonoBehaviour
         // 4. Eventos de Texto (FUERA del bucle de tarjetas)
         inputNombre.RegisterCallback<ChangeEvent<string>>(e =>
         {
+           currentName = e.newValue;
             usuario[current].nombre = e.newValue;
             logicaTarjeta[current].Actualizar(usuario[current]);
         });
 
         inputApellido.RegisterCallback<ChangeEvent<string>>(e =>
         {
+            currentSurname = e.newValue;
             usuario[current].apellido = e.newValue;
             logicaTarjeta[current].Actualizar(usuario[current]);
+
         });
+
+        create.RegisterCallback<ClickEvent>(NuevaTarjeta);
+        change.RegisterCallback<ClickEvent>(CambiarTarjeta);
     }
 
     private void AlPulsarFotoGaleria(PointerDownEvent evt)
@@ -90,8 +83,111 @@ public class Lab5 : MonoBehaviour
         VisualElement elementoPulsado = evt.currentTarget as VisualElement;
         if (elementoPulsado != null && elementoPulsado.userData is Sprite fotoSeleccionada)
         {
-            usuario[current].foto = fotoSeleccionada;
-            logicaTarjeta[current].Actualizar(usuario[current]);
+            currentPhoto = fotoSeleccionada;
+        }
+    }
+
+    private void CrearTarjeta(Individuo datos) 
+    {
+        VisualTreeAsset plantilla = Resources.Load<VisualTreeAsset>("Tarjeta");
+        VisualElement nuevaTarjeta = plantilla.Instantiate();
+        
+        derecha.Add(nuevaTarjeta);
+
+        tarjetaVisual.Add(nuevaTarjeta);
+
+        int i = tarjetaVisual.Count - 1;
+
+        logicaTarjeta.Add(new Tarjeta(nuevaTarjeta));
+
+        usuario[i] = datos;
+
+        logicaTarjeta[i].Actualizar(usuario[i]);
+
+        nuevaTarjeta.userData = i;
+
+        nuevaTarjeta.RegisterCallback<PointerDownEvent>(ev =>
+        {
+            current = (int)nuevaTarjeta.userData;
+
+            inputNombre.SetValueWithoutNotify(usuario[current].nombre);
+            inputApellido.SetValueWithoutNotify(usuario[current].apellido);
+        });
+    }
+
+    private void NuevaTarjeta(ClickEvent evt)
+    {
+        // 1. Crear la tarjeta visual desde plantilla
+        VisualTreeAsset plantilla = Resources.Load<VisualTreeAsset>("Tarjeta");
+        VisualElement nuevaTarjeta = plantilla.Instantiate();
+
+        // 2. AÃ±adirla al contenedor derecha
+        derecha.Add(nuevaTarjeta);
+        Debug.Log(derecha.childCount);
+
+        // 3. AÃ±adir a listas
+        tarjetaVisual.Add(nuevaTarjeta);
+
+        int i = tarjetaVisual.Count - 1;
+
+        logicaTarjeta.Add(new Tarjeta(nuevaTarjeta));
+        usuario.Add(new Individuo(currentName, currentSurname, currentPhoto));
+
+        // 4. Asignar Ã­ndice
+        nuevaTarjeta.userData = i;
+
+        // 5. Actualizar visual
+        logicaTarjeta[i].Actualizar(usuario[i]);
+
+        // 6. Evento de click
+        nuevaTarjeta.RegisterCallback<PointerDownEvent>(ev =>
+        {
+            current = (int)nuevaTarjeta.userData;
+
+            inputNombre.SetValueWithoutNotify(usuario[current].nombre);
+            inputApellido.SetValueWithoutNotify(usuario[current].apellido);
+
+        });
+
+        GuardarJSON();
+    }
+
+    private void CambiarTarjeta(ClickEvent evt)
+    {
+        GuardarJSON();
+    }
+
+    void GuardarJSON()
+    {
+        string json = JsonHelperIndividuo.ToJson(usuario, true);
+
+        string path = Application.persistentDataPath + "/individuos.json";
+        System.IO.File.WriteAllText(path, json);
+
+        Debug.Log("Guardado en: " + path);
+    }
+
+    void CargarJSON()
+    {
+        string path = Application.persistentDataPath + "/individuos.json";
+
+        if (System.IO.File.Exists(path))
+        {
+            string json = System.IO.File.ReadAllText(path);
+            usuario = JsonHelperIndividuo.FromJson<Individuo>(json);
+        }
+        else
+        {
+            TextAsset jsonFile = Resources.Load<TextAsset>("individuos");
+
+            if (jsonFile != null)
+            {
+                usuario = JsonHelperIndividuo.FromJson<Individuo>(jsonFile.text);
+            }
+            else
+            {
+                usuario = new List<Individuo>();
+            }
         }
     }
 }
