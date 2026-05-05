@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RootsOfLife
@@ -51,15 +52,24 @@ namespace RootsOfLife
             PlayerPrefs.Save();
         }
 
+
         // ─── Datos de juego ───────────────────────────────────────────────────
 
         public GameSaveData LoadGame(int slot)
         {
             ValidateSlot(slot);
             string json = PlayerPrefs.GetString(string.Format(SLOT_DATA_KEY, slot), "");
+
+            GameSaveData data;
+
             if (string.IsNullOrEmpty(json))
-                return new GameSaveData();
-            return JsonUtility.FromJson<GameSaveData>(json) ?? new GameSaveData();
+                data = new GameSaveData();
+            else
+                data = JsonUtility.FromJson<GameSaveData>(json) ?? new GameSaveData();
+
+            data.EnsureInventorySize(); // 🔥 CLAVE
+
+            return data;
         }
 
         public void SaveGame(int slot, GameSaveData data)

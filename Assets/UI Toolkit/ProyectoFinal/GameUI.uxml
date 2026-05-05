@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Game.uss?fileID=7433441132597879392&amp;guid=e24be124db2d6ef448821e352131e018&amp;type=3#Game" />
+    <Style src="project://database/Assets/UI%20Toolkit/ProyectoFinal/GameUI.uss?fileID=7433441132597879392&amp;guid=9998a3f5b8640f342886ddab553ad193&amp;type=3#GameUI" />
     <ui:VisualElement name="game-root" class="game-root">
         <ui:VisualElement name="topbar" class="topbar">
             <ui:Button name="tab-mapa" text="Mapa" class="tab tab--mapa     tab--active" />
@@ -9,7 +9,7 @@
             <ui:Button name="tab-ajustes" text="Ajustes" class="tab tab--ajustes" />
         </ui:VisualElement>
         <ui:VisualElement name="game-content" class="game-content">
-            <ui:VisualElement name="content-mapa" class="tab-content tab-content--active" style="display: none;">
+            <ui:VisualElement name="content-mapa" class="tab-content tab-content--active">
                 <ui:VisualElement name="map-area" class="map-area">
                     <ui:VisualElement name="island-central" class="island island--central">
                         <ui:Label text="Central" class="island-label" />
@@ -22,7 +22,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-inventario" class="tab-content unity-disabled" style="display: none;">
+            <ui:VisualElement name="content-inventario" class="tab-content unity-disabled">
                 <ui:VisualElement name="inv-area" class="inv-area">
                     <ui:VisualElement name="inv-grid" class="inv-grid">
                         <ui:VisualElement name="inv-slot-0" class="inv-slot" />
@@ -58,10 +58,10 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-enciclopedia" class="tab-content unity-disabled" style="display: none;">
+            <ui:VisualElement name="content-enciclopedia" class="tab-content unity-disabled">
                 <ui:Label text="📖 Enciclopedia — próximamente" class="placeholder-label" />
             </ui:VisualElement>
-            <ui:VisualElement name="content-mejoras" class="tab-content unity-disabled" style="display: none;">
+            <ui:VisualElement name="content-mejoras" class="tab-content unity-disabled">
                 <ui:VisualElement name="upg-area" class="upg-area">
                     <ui:VisualElement name="tool-row-regadera" class="tool-row">
                         <ui:Button name="tool-icon-regadera" text="💧" class="tool-icon" />
@@ -161,7 +161,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-ajustes" class="tab-content unity-disabled" style="display: none;">
+            <ui:VisualElement name="content-ajustes" class="tab-content unity-disabled">
                 <ui:VisualElement name="settings-area" class="settings-area">
                     <ui:VisualElement name="setting-music" class="setting-row">
                         <ui:Label text="Música" class="setting-label" />

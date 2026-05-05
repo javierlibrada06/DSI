@@ -72,5 +72,53 @@ namespace RootsOfLife
             t.level++;
             return true;
         }
+
+        public bool AddItem(string id, int amount, ItemDatabase db)
+        {
+            var itemDef = db.Get(id);
+            if (itemDef == null) return false;
+
+            // 1. Rellenar stacks existentes
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                var slot = inventory[i];
+                if (slot != null && slot.itemId == id)
+                {
+                    int space = itemDef.maxStack - slot.count;
+                    int toAdd = Mathf.Min(space, amount);
+
+                    slot.count += toAdd;
+                    amount -= toAdd;
+
+                    if (amount <= 0) return true;
+                }
+            }
+
+            // 2. Crear nuevos stacks
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i] == null)
+                {
+                    int toAdd = Mathf.Min(itemDef.maxStack, amount);
+                    inventory[i] = new InventoryItemData { itemId = id, count = toAdd };
+                    amount -= toAdd;
+
+                    if (amount <= 0) return true;
+                }
+            }
+
+            return false; // lleno
+        }
+        public int InventorySize => 30;
+
+        public void EnsureInventorySize()
+        {
+            if (inventory == null)
+                inventory = new List<InventoryItemData>();
+
+            while (inventory.Count < InventorySize)
+                inventory.Add(null);
+        }
+
     }
 }
