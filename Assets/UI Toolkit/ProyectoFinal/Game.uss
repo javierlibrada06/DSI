@@ -1,31 +1,25 @@
-﻿/* ─────────────────────────────────────────────
-   ESTILOS GENERALES Y BASE (game-root)
-   ───────────────────────────────────────────── */
 .game-root {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: #1e3a1e;
-    color: #f5f0e0;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
+    background-color: rgb(30, 58, 30);
+    color: rgb(245, 240, 224);
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
 }
 
-/* Utilitario para ocultar elementos */
 .unity-disabled {
     display: none;
 }
 
-/* ─────────────────────────────────────────────
-   BARRA DE PESTAÑAS (Topbar)
-   ───────────────────────────────────────────── */
 .topbar {
     flex-direction: row;
     height: 60px;
-    background-color: #5c3317;
+    background-color: rgb(92, 51, 23);
     border-bottom-width: 3px;
-    border-bottom-color: #d4a96a;
+    border-bottom-color: rgb(212, 169, 106);
     padding-left: 20px;
     padding-right: 20px;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .tab {
@@ -34,7 +28,7 @@
     border-width: 0;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    color: #c4935a;
+    color: rgb(196, 147, 90);
     font-size: 16px;
     margin-top: 8px;
     transition: background-color 0.2s ease, color 0.2s ease;
@@ -42,21 +36,18 @@
 
 .tab:hover {
     background-color: rgba(212, 169, 106, 0.2);
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
 }
 
 .tab--active {
-    background-color: #1e3a1e;
-    color: #f0d060;
+    background-color: rgb(30, 58, 30);
+    color: rgb(240, 208, 96);
     border-left-width: 2px;
     border-right-width: 2px;
     border-top-width: 2px;
-    border-color: #d4a96a;
+    border-color: rgb(212, 169, 106);
 }
 
-/* ─────────────────────────────────────────────
-   CONTENEDOR DE CONTENIDO (Layout Principal)
-   ───────────────────────────────────────────── */
 .game-content {
     flex-direction: row;
     flex-grow: 1;
@@ -68,12 +59,9 @@
     margin-right: 20px;
 }
 
-/* ─────────────────────────────────────────────
-   MAPA (Isletas)
-   ───────────────────────────────────────────── */
 .map-area {
     flex-grow: 1;
-    background-color: #2d5a2d; /* Verde agua/pasto */
+    background-color: rgb(45, 90, 45);
     border-radius: 20px;
     position: relative;
     overflow: hidden;
@@ -81,28 +69,43 @@
 
 .island {
     position: absolute;
-    background-color: #d4a96a;
+    background-color: rgb(212, 169, 106);
     border-radius: 50%;
     border-width: 4px;
-    border-color: #5c3317;
+    border-color: rgb(92, 51, 23);
     align-items: center;
     justify-content: center;
     padding: 10px;
 }
 
-.island--central { top: 40%; left: 40%; width: 120px; height: 120px; background-color: #e8c88a; }
-.island--oeste { top: 20%; left: 15%; width: 90px; height: 90px; }
-.island--este { top: 60%; left: 70%; width: 100px; height: 100px; }
+.island--central {
+    top: 40%;
+    left: 40%;
+    width: 120px;
+    height: 120px;
+    background-color: rgb(232, 200, 138);
+}
+
+.island--oeste {
+    top: 20%;
+    left: 15%;
+    width: 90px;
+    height: 90px;
+}
+
+.island--este {
+    top: 60%;
+    left: 70%;
+    width: 100px;
+    height: 100px;
+}
 
 .island-label {
-    color: #5c3317;
+    color: rgb(92, 51, 23);
     -unity-font-style: bold;
     font-size: 14px;
 }
 
-/* ─────────────────────────────────────────────
-   INVENTARIO (Grid)
-   ───────────────────────────────────────────── */
 .inv-grid {
     flex-direction: row;
     flex-wrap: wrap;
@@ -113,20 +116,17 @@
     width: 15%;
     aspect-ratio: 1;
     margin: 0.8%;
-    background-color: #2d5a2d;
+    background-color: rgb(45, 90, 45);
     border-width: 2px;
-    border-color: #3d8b3d;
+    border-color: rgb(61, 139, 61);
     border-radius: 8px;
 }
 
 .inv-slot:hover {
-    border-color: #f0d060;
-    background-color: #3d8b3d;
+    border-color: rgb(240, 208, 96);
+    background-color: rgb(61, 139, 61);
 }
 
-/* ─────────────────────────────────────────────
-   MEJORAS (Upgrade System)
-   ───────────────────────────────────────────── */
 .upg-area {
     flex-direction: column;
 }
@@ -134,7 +134,7 @@
 .tool-row {
     flex-direction: row;
     align-items: center;
-    background-color: #2d5a2d;
+    background-color: rgb(45, 90, 45);
     margin-bottom: 12px;
     padding: 10px;
     border-radius: 12px;
@@ -144,10 +144,10 @@
     width: 60px;
     height: 60px;
     font-size: 30px;
-    background-color: #5c3317;
+    background-color: rgb(92, 51, 23);
     border-radius: 10px;
     border-width: 2px;
-    border-color: #d4a96a;
+    border-color: rgb(212, 169, 106);
 }
 
 .level-bars {
@@ -159,7 +159,7 @@
 .level-bar {
     width: 30px;
     height: 40px;
-    background-color: #1e3a1e;
+    background-color: rgb(30, 58, 30);
     margin-right: 4px;
     border-radius: 4px;
     align-items: center;
@@ -167,12 +167,12 @@
 }
 
 .level-bar--active {
-    background-color: #4caf50;
+    background-color: rgb(76, 175, 80);
 }
 
 .level-bar--current {
     border-width: 2px;
-    border-color: #f0d060;
+    border-color: rgb(240, 208, 96);
 }
 
 .bar-num {
@@ -185,12 +185,16 @@
     margin-left: 15px;
 }
 
-.tool-name { font-size: 18px; color: #f5f0e0; }
-.tool-lvl { font-size: 12px; color: #f0d060; }
+.tool-name {
+    font-size: 18px;
+    color: rgb(245, 240, 224);
+}
 
-/* ─────────────────────────────────────────────
-   AJUSTES (Sliders)
-   ───────────────────────────────────────────── */
+.tool-lvl {
+    font-size: 12px;
+    color: rgb(240, 208, 96);
+}
+
 .settings-area {
     padding: 20px;
 }
@@ -211,55 +215,58 @@
 
 .setting-slider {
     flex-grow: 1;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .setting-value {
     width: 40px;
     -unity-text-align: middle-right;
-    color: #f0d060;
+    color: rgb(240, 208, 96);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
-/* ─────────────────────────────────────────────
-   PANEL LATERAL (Side Panel Info)
-   ───────────────────────────────────────────── */
 .side-panel {
     width: 300px;
-    background-color: #5c3317;
+    background-color: rgb(92, 51, 23);
     border-width: 3px;
-    border-color: #d4a96a;
+    border-color: rgb(212, 169, 106);
     border-radius: 15px;
     padding: 20px;
 }
 
 .panel-title {
     font-size: 22px;
-    color: #f0d060;
+    color: rgb(240, 208, 96);
     margin-bottom: 15px;
-    -unity-font-definition: url("project://database/Assets/Fonts/PressStart2P.asset");
+    -unity-font-definition: url('project://database/Assets/Fonts/PressStart2P.asset');
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .panel-desc {
     font-size: 14px;
-    color: #e8c88a;
+    color: rgb(232, 200, 138);
     white-space: normal;
     margin-bottom: 20px;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
 }
 
 .btn-upgrade {
-    background-color: #3d8b3d;
-    border-color: #4caf50;
-    color: #f5f0e0;
+    background-color: rgb(61, 139, 61);
+    border-color: rgb(76, 175, 80);
+    color: rgb(245, 240, 224);
     padding: 12px;
     border-radius: 10px;
     margin-top: 15px;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
 }
 
 .btn-upgrade:hover {
-    background-color: #4caf50;
+    background-color: rgb(76, 175, 80);
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
 }
 
 .upg-capacity {
     font-size: 13px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
     margin-bottom: 4px;
 }
