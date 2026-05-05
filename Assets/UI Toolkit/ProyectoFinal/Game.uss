@@ -1,0 +1,265 @@
+﻿/* ─────────────────────────────────────────────
+   ESTILOS GENERALES Y BASE (game-root)
+   ───────────────────────────────────────────── */
+.game-root {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #1e3a1e;
+    color: #f5f0e0;
+    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
+}
+
+/* Utilitario para ocultar elementos */
+.unity-disabled {
+    display: none;
+}
+
+/* ─────────────────────────────────────────────
+   BARRA DE PESTAÑAS (Topbar)
+   ───────────────────────────────────────────── */
+.topbar {
+    flex-direction: row;
+    height: 60px;
+    background-color: #5c3317;
+    border-bottom-width: 3px;
+    border-bottom-color: #d4a96a;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.tab {
+    flex-grow: 1;
+    background-color: transparent;
+    border-width: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    color: #c4935a;
+    font-size: 16px;
+    margin-top: 8px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab:hover {
+    background-color: rgba(212, 169, 106, 0.2);
+    color: #f5f0e0;
+}
+
+.tab--active {
+    background-color: #1e3a1e;
+    color: #f0d060;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-color: #d4a96a;
+}
+
+/* ─────────────────────────────────────────────
+   CONTENEDOR DE CONTENIDO (Layout Principal)
+   ───────────────────────────────────────────── */
+.game-content {
+    flex-direction: row;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.tab-content {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+/* ─────────────────────────────────────────────
+   MAPA (Isletas)
+   ───────────────────────────────────────────── */
+.map-area {
+    flex-grow: 1;
+    background-color: #2d5a2d; /* Verde agua/pasto */
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.island {
+    position: absolute;
+    background-color: #d4a96a;
+    border-radius: 50%;
+    border-width: 4px;
+    border-color: #5c3317;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.island--central { top: 40%; left: 40%; width: 120px; height: 120px; background-color: #e8c88a; }
+.island--oeste { top: 20%; left: 15%; width: 90px; height: 90px; }
+.island--este { top: 60%; left: 70%; width: 100px; height: 100px; }
+
+.island-label {
+    color: #5c3317;
+    -unity-font-style: bold;
+    font-size: 14px;
+}
+
+/* ─────────────────────────────────────────────
+   INVENTARIO (Grid)
+   ───────────────────────────────────────────── */
+.inv-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.inv-slot {
+    width: 15%;
+    aspect-ratio: 1;
+    margin: 0.8%;
+    background-color: #2d5a2d;
+    border-width: 2px;
+    border-color: #3d8b3d;
+    border-radius: 8px;
+}
+
+.inv-slot:hover {
+    border-color: #f0d060;
+    background-color: #3d8b3d;
+}
+
+/* ─────────────────────────────────────────────
+   MEJORAS (Upgrade System)
+   ───────────────────────────────────────────── */
+.upg-area {
+    flex-direction: column;
+}
+
+.tool-row {
+    flex-direction: row;
+    align-items: center;
+    background-color: #2d5a2d;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.tool-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    background-color: #5c3317;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #d4a96a;
+}
+
+.level-bars {
+    flex-direction: row;
+    margin-left: 15px;
+    flex-grow: 1;
+}
+
+.level-bar {
+    width: 30px;
+    height: 40px;
+    background-color: #1e3a1e;
+    margin-right: 4px;
+    border-radius: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.level-bar--active {
+    background-color: #4caf50;
+}
+
+.level-bar--current {
+    border-width: 2px;
+    border-color: #f0d060;
+}
+
+.bar-num {
+    font-size: 10px;
+    color: rgba(245, 240, 224, 0.5);
+}
+
+.tool-info {
+    width: 120px;
+    margin-left: 15px;
+}
+
+.tool-name { font-size: 18px; color: #f5f0e0; }
+.tool-lvl { font-size: 12px; color: #f0d060; }
+
+/* ─────────────────────────────────────────────
+   AJUSTES (Sliders)
+   ───────────────────────────────────────────── */
+.settings-area {
+    padding: 20px;
+}
+
+.setting-row {
+    margin-bottom: 25px;
+}
+
+.setting-label {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.setting-slider-row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.setting-slider {
+    flex-grow: 1;
+}
+
+.setting-value {
+    width: 40px;
+    -unity-text-align: middle-right;
+    color: #f0d060;
+}
+
+/* ─────────────────────────────────────────────
+   PANEL LATERAL (Side Panel Info)
+   ───────────────────────────────────────────── */
+.side-panel {
+    width: 300px;
+    background-color: #5c3317;
+    border-width: 3px;
+    border-color: #d4a96a;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.panel-title {
+    font-size: 22px;
+    color: #f0d060;
+    margin-bottom: 15px;
+    -unity-font-definition: url("project://database/Assets/Fonts/PressStart2P.asset");
+}
+
+.panel-desc {
+    font-size: 14px;
+    color: #e8c88a;
+    white-space: normal;
+    margin-bottom: 20px;
+}
+
+.btn-upgrade {
+    background-color: #3d8b3d;
+    border-color: #4caf50;
+    color: #f5f0e0;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.btn-upgrade:hover {
+    background-color: #4caf50;
+}
+
+.upg-capacity {
+    font-size: 13px;
+    color: #f5f0e0;
+    margin-bottom: 4px;
+}

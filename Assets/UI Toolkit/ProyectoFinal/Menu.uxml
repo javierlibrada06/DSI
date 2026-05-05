@@ -1,0 +1,67 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Menu.uss?fileID=7433441132597879392&amp;guid=2852aac3fb1091e46966c101a636be75&amp;type=3#Menu" />
+    <ui:VisualElement name="root" class="root-container">
+        <ui:VisualElement name="screen-menu" class="screen screen--menu">
+            <ui:VisualElement name="menu-left" class="menu-left">
+                <ui:VisualElement name="logo-container" class="logo-container">
+                    <ui:Label name="logo-icon" text="🌿" class="logo-icon" />
+                    <ui:Label name="logo-text" text="Roots&#10;of Life" class="logo-text" />
+                </ui:VisualElement>
+                <ui:VisualElement name="menu-buttons" class="menu-buttons">
+                    <ui:Button name="btn-jugar" text="Jugar" class="btn-menu" />
+                    <ui:Button name="btn-salir" text="Salir" class="btn-menu" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="menu-right" class="menu-right" />
+        </ui:VisualElement>
+        <ui:VisualElement name="screen-saves" class="screen screen--saves unity-disabled">
+            <ui:VisualElement name="saves-header" class="saves-header">
+                <ui:Label name="saves-logo" text="Roots of Life" class="saves-logo" />
+                <ui:Button name="btn-back-menu" text="← Volver" class="btn-back-sm" />
+            </ui:VisualElement>
+            <ui:VisualElement name="slots-grid" class="slots-grid">
+                <ui:VisualElement name="slot-0" class="slot-card">
+                    <ui:Label name="slot-0-icon" text="🌿" class="slot-icon" />
+                    <ui:Label name="slot-0-name" text="Partida 1" class="slot-name" />
+                </ui:VisualElement>
+                <ui:VisualElement name="slot-1" class="slot-card">
+                    <ui:Label name="slot-1-icon" text="🌿" class="slot-icon" />
+                    <ui:Label name="slot-1-name" text="Partida 2" class="slot-name" />
+                </ui:VisualElement>
+                <ui:VisualElement name="slot-2" class="slot-card">
+                    <ui:Label name="slot-2-icon" text="🌿" class="slot-icon" />
+                    <ui:Label name="slot-2-name" text="Partida 3" class="slot-name" />
+                </ui:VisualElement>
+                <ui:VisualElement name="slot-3" class="slot-card slot-card--empty">
+                    <ui:Label name="slot-3-icon" text="➕" class="slot-icon slot-icon--empty" />
+                    <ui:Label name="slot-3-name" text="Vacío" class="slot-name slot-name--empty" />
+                </ui:VisualElement>
+                <ui:VisualElement name="slot-4" class="slot-card slot-card--empty">
+                    <ui:Label name="slot-4-icon" text="➕" class="slot-icon slot-icon--empty" />
+                    <ui:Label name="slot-4-name" text="Vacío" class="slot-name slot-name--empty" />
+                </ui:VisualElement>
+                <ui:VisualElement name="slot-5" class="slot-card slot-card--empty">
+                    <ui:Label name="slot-5-icon" text="➕" class="slot-icon slot-icon--empty" />
+                    <ui:Label name="slot-5-name" text="Vacío" class="slot-name slot-name--empty" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="modal-overlay" class="modal-overlay unity-disabled">
+            <ui:VisualElement name="modal-box" class="modal-box">
+                <ui:Button name="modal-close" text="X" class="modal-close" />
+                <ui:Label name="modal-icon" text="🌿" class="modal-icon" />
+                <ui:Label name="modal-title" text="Partida 1" class="modal-title" />
+                <ui:TextField name="modal-rename-field" placeholder-string="Nuevo nombre..." class="modal-rename-field unity-disabled" />
+                <ui:VisualElement name="modal-actions" class="modal-actions">
+                    <ui:Button name="modal-btn-play" text="▶ Jugar" class="btn-sm btn-sm--play" />
+                    <ui:Button name="modal-btn-rename" text="✏️ Renombrar" class="btn-sm" />
+                    <ui:Button name="modal-btn-delete" text="🗑️ Borrar" class="btn-sm btn-sm--danger" />
+                </ui:VisualElement>
+                <ui:VisualElement name="modal-actions-rename" class="modal-actions unity-disabled">
+                    <ui:Button name="modal-btn-confirm" text="✓ Guardar" class="btn-sm btn-sm--play" />
+                    <ui:Button name="modal-btn-cancel" text="✗ Cancelar" class="btn-sm" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

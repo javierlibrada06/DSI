@@ -1,0 +1,40 @@
+.menu-container {
+    flex-grow: 1;
+    background-color: #1e3a1e;
+    /* Simulación de gradiente (UI Toolkit 2022 usa tintas o imágenes para gradientes complejos) */
+    border-right-width: 300px;
+    border-right-color: #4caf50;
+    padding: 32px;
+    justify-content: center;
+}
+
+.logo {
+    font-size: 48px;
+    color: #e8c88a;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: #5c3317;
+    margin-bottom: 48px;
+}
+
+.menu-btns {
+    width: 300px;
+    gap: 16px;
+}
+
+.btn-menu {
+    background-color: #5c3317;
+    color: #f5f0e0;
+    border-width: 3px;
+    border-color: #d4a96a;
+    border-radius: 30px;
+    padding: 14px;
+    font-size: 20px;
+    -unity-font-style: bold-italic;
+    transition-duration: 0.15s;
+}
+
+.btn-menu:hover {
+    background-color: #7a4a2a;
+    scale: 1.04;
+}

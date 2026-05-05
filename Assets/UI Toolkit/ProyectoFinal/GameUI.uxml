@@ -1,0 +1,204 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Game.uss?fileID=7433441132597879392&amp;guid=e24be124db2d6ef448821e352131e018&amp;type=3#Game" />
+    <ui:VisualElement name="game-root" class="game-root">
+        <ui:VisualElement name="topbar" class="topbar">
+            <ui:Button name="tab-mapa" text="Mapa" class="tab tab--mapa     tab--active" />
+            <ui:Button name="tab-inventario" text="Inventario" class="tab tab--inventario" />
+            <ui:Button name="tab-enciclopedia" text="Enciclopedia" class="tab tab--enciclopedia" />
+            <ui:Button name="tab-mejoras" text="Mejoras" class="tab tab--mejoras" />
+            <ui:Button name="tab-ajustes" text="Ajustes" class="tab tab--ajustes" />
+        </ui:VisualElement>
+        <ui:VisualElement name="game-content" class="game-content">
+            <ui:VisualElement name="content-mapa" class="tab-content tab-content--active" style="display: none;">
+                <ui:VisualElement name="map-area" class="map-area">
+                    <ui:VisualElement name="island-central" class="island island--central">
+                        <ui:Label text="Central" class="island-label" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="island-oeste" class="island island--oeste">
+                        <ui:Label text="Oeste" class="island-label" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="island-este" class="island island--este">
+                        <ui:Label text="Este" class="island-label" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="content-inventario" class="tab-content unity-disabled" style="display: none;">
+                <ui:VisualElement name="inv-area" class="inv-area">
+                    <ui:VisualElement name="inv-grid" class="inv-grid">
+                        <ui:VisualElement name="inv-slot-0" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-1" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-2" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-3" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-4" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-5" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-6" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-7" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-8" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-9" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-10" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-11" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-12" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-13" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-14" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-15" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-16" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-17" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-18" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-19" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-20" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-21" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-22" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-23" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-24" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-25" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-26" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-27" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-28" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-29" class="inv-slot" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="content-enciclopedia" class="tab-content unity-disabled" style="display: none;">
+                <ui:Label text="📖 Enciclopedia — próximamente" class="placeholder-label" />
+            </ui:VisualElement>
+            <ui:VisualElement name="content-mejoras" class="tab-content unity-disabled" style="display: none;">
+                <ui:VisualElement name="upg-area" class="upg-area">
+                    <ui:VisualElement name="tool-row-regadera" class="tool-row">
+                        <ui:Button name="tool-icon-regadera" text="💧" class="tool-icon" />
+                        <ui:VisualElement name="bars-regadera" class="level-bars">
+                            <ui:VisualElement class="level-bar level-bar--active level-bar--current">
+                                <ui:Label text="1" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="2" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="3" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="4" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="5" class="bar-num" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="tool-info">
+                            <ui:Label name="tool-name-regadera" text="Regadera" class="tool-name" />
+                            <ui:Label name="tool-lvl-regadera" text="Lvl. 1" class="tool-lvl" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="tool-row-hacha" class="tool-row">
+                        <ui:Button name="tool-icon-hacha" text="🪓" class="tool-icon" />
+                        <ui:VisualElement name="bars-hacha" class="level-bars">
+                            <ui:VisualElement class="level-bar level-bar--active">
+                                <ui:Label text="1" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar level-bar--active level-bar--current">
+                                <ui:Label text="2" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="3" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="4" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="5" class="bar-num" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="tool-info">
+                            <ui:Label name="tool-name-hacha" text="Hacha" class="tool-name" />
+                            <ui:Label name="tool-lvl-hacha" text="Lvl. 2" class="tool-lvl" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="tool-row-pico" class="tool-row">
+                        <ui:Button name="tool-icon-pico" text="⛏️" class="tool-icon" />
+                        <ui:VisualElement name="bars-pico" class="level-bars">
+                            <ui:VisualElement class="level-bar level-bar--active">
+                                <ui:Label text="1" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar level-bar--active">
+                                <ui:Label text="2" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar level-bar--active level-bar--current">
+                                <ui:Label text="3" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="4" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="5" class="bar-num" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="tool-info">
+                            <ui:Label name="tool-name-pico" text="Pico" class="tool-name" />
+                            <ui:Label name="tool-lvl-pico" text="Lvl. 3" class="tool-lvl" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="tool-row-azada" class="tool-row">
+                        <ui:Button name="tool-icon-azada" text="🔨" class="tool-icon" />
+                        <ui:VisualElement name="bars-azada" class="level-bars">
+                            <ui:VisualElement class="level-bar level-bar--active">
+                                <ui:Label text="1" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar level-bar--active">
+                                <ui:Label text="2" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar level-bar--active">
+                                <ui:Label text="3" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar level-bar--active level-bar--current">
+                                <ui:Label text="4" class="bar-num" />
+                            </ui:VisualElement>
+                            <ui:VisualElement class="level-bar">
+                                <ui:Label text="5" class="bar-num" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement class="tool-info">
+                            <ui:Label name="tool-name-azada" text="Azada" class="tool-name" />
+                            <ui:Label name="tool-lvl-azada" text="Lvl. 4" class="tool-lvl" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="content-ajustes" class="tab-content unity-disabled" style="display: none;">
+                <ui:VisualElement name="settings-area" class="settings-area">
+                    <ui:VisualElement name="setting-music" class="setting-row">
+                        <ui:Label text="Música" class="setting-label" />
+                        <ui:VisualElement class="setting-slider-row">
+                            <ui:Slider name="slider-music" low-value="0" high-value="100" value="60" class="setting-slider" />
+                            <ui:Label name="val-music" text="60" class="setting-value" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="setting-sfx" class="setting-row">
+                        <ui:Label text="Efectos de sonido" class="setting-label" />
+                        <ui:VisualElement class="setting-slider-row">
+                            <ui:Slider name="slider-sfx" low-value="0" high-value="100" value="75" class="setting-slider" />
+                            <ui:Label name="val-sfx" text="75" class="setting-value" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="setting-textsize" class="setting-row">
+                        <ui:Label text="Tamaño del texto" class="setting-label" />
+                        <ui:VisualElement class="setting-slider-row">
+                            <ui:Slider name="slider-textsize" low-value="10" high-value="24" value="14" class="setting-slider" />
+                            <ui:Label name="val-textsize" text="14" class="setting-value" />
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="side-panel" class="side-panel">
+                <ui:Label name="panel-title" text="Selección" class="panel-title" />
+                <ui:Label name="panel-desc" text="En el mundo de Roots of Life, hay un montón de archipiélagos por explorar. ¿Podrás descubrir los secretos de todas sus islas?" class="panel-desc" />
+                <ui:VisualElement name="upg-info" class="upg-info unity-disabled">
+                    <ui:Label name="upg-level" text="Nivel: Lvl.1" class="upg-level" />
+                    <ui:Label name="upg-next" text="Siguiente mejora: 20 RC → Lvl. 2" class="upg-next" />
+                    <ui:Label name="upg-cap-curr" text="• Capacidad actual: 10" class="upg-capacity" />
+                    <ui:Label name="upg-cap-next" text="• Capacidad nueva: 20" class="upg-capacity" />
+                    <ui:Button name="btn-upgrade" text="⬆ Mejorar (20 RC)" class="btn-upgrade" />
+                    <ui:Label name="upg-max-label" text="¡Nivel máximo alcanzado!" class="upg-max-label unity-disabled" />
+                </ui:VisualElement>
+                <ui:Button name="panel-back" text="Volver" class="panel-back-btn unity-disabled" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
