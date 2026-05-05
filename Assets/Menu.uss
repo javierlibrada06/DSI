@@ -51,6 +51,9 @@
     margin-right: 8px;
     -unity-text-align: lower-center;
     -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+    background-image: url('project://database/Assets/images/ProyectoFinal/Logo%20Simple.png?fileID=2800000&guid=b561959121886004fbccc64d31804922&type=3#Logo Simple');
+    -unity-background-scale-mode: scale-to-fit;
+    width: 50%;
 }
 
 .logo-text {
@@ -169,6 +172,11 @@
     margin-bottom: 10px;
     -unity-text-align: middle-center;
     -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+    background-image: url('project://database/Assets/images/ProyectoFinal/Logo%20Simple.png?fileID=2800000&guid=b561959121886004fbccc64d31804922&type=3#Logo Simple');
+    -unity-background-scale-mode: scale-to-fit;
+    color: rgba(27, 27, 27, 0);
+    width: 50%;
+    height: 70%;
 }
 
 .slot-icon--empty {
@@ -208,7 +216,7 @@
     border-width: 3px;
     border-radius: 14px;
     padding: 28px;
-    width: 340px;
+    width: 40%;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
@@ -225,10 +233,12 @@
     cursor: link;
     padding: 0;
     -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .modal-close:hover {
     color: rgb(240, 208, 96);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .modal-icon {
@@ -237,6 +247,11 @@
     margin-bottom: 12px;
     -unity-text-align: middle-center;
     -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+    background-image: url('project://database/Assets/images/ProyectoFinal/Logo%20Simple.png?fileID=2800000&guid=b561959121886004fbccc64d31804922&type=3#Logo Simple');
+    -unity-background-scale-mode: scale-to-fit;
+    color: rgba(27, 27, 27, 0);
+    width: 50%;
+    height: 30%;
 }
 
 .modal-title {
@@ -245,6 +260,8 @@
     color: rgb(245, 240, 224);
     margin-bottom: 20px;
     -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+    width: 100%;
+    height: 10%;
 }
 
 .modal-rename-field {
@@ -271,45 +288,105 @@
     flex-direction: row;
     justify-content: flex-end;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    height: 20%;
+    align-self: flex-start;
+    align-items: center;
 }
 
 .btn-sm {
     -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
-    font-size: 13px;
+    font-size: 70%;
     padding: 8px 16px;
     border-radius: 8px;
     border-width: 2px;
     border-color: rgb(212, 169, 106);
-    background-color: rgb(122, 74, 42);
-    color: rgb(245, 240, 224);
+    background-color: rgba(122, 74, 42, 0);
+    color: rgb(255, 255, 255);
     margin-left: 8px;
     margin-top: 6px;
     cursor: link;
     transition: background-color 0.1s ease;
+    width: 30%;
+    height: 20%;
+    border-left-color: rgba(231, 76, 60, 0);
+    border-right-color: rgba(231, 76, 60, 0);
+    border-top-color: rgba(231, 76, 60, 0);
+    border-bottom-color: rgba(231, 76, 60, 0);
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    -unity-text-align: middle-right;
+    -unity-font-style: normal;
+    text-overflow: clip;
 }
 
 .btn-sm:hover {
-    background-color: rgb(196, 147, 90);
+    background-color: rgba(196, 147, 90, 0);
+    width: 30%;
+    height: 20%;
+    font-size: 75%;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    -unity-text-align: middle-right;
+    -unity-font-style: bold;
+    color: rgb(212, 169, 106);
 }
 
 .btn-sm--play {
-    background-color: rgb(61, 139, 61);
+    background-color: rgba(61, 139, 61, 0);
     border-color: rgb(76, 175, 80);
-    font-size: 15px;
+    font-size: 70%;
     padding: 10px 24px;
+    width: 30%;
+    height: 20%;
+    align-self: center;
+    justify-content: center;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    border-left-color: rgba(76, 175, 80, 0);
+    border-right-color: rgba(76, 175, 80, 0);
+    border-top-color: rgba(76, 175, 80, 0);
+    border-bottom-color: rgba(76, 175, 80, 0);
+    -unity-text-align: middle-right;
+    color: rgb(255, 255, 255);
 }
 
 .btn-sm--play:hover {
-    background-color: rgb(76, 175, 80);
+    background-color: rgba(76, 175, 80, 0);
+    width: 30%;
+    height: 20%;
+    font-size: 75%;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    -unity-text-align: middle-right;
+    -unity-font-style: bold;
+    color: rgb(188, 248, 191);
 }
 
 .btn-sm--danger {
-    border-color: rgb(231, 76, 60);
-    color: rgb(255, 170, 170);
+    background-color: rgba(61, 139, 61, 0);
+    border-color: rgb(76, 175, 80);
+    font-size: 70%;
+    padding: 10px 24px;
+    width: 30%;
+    height: 20%;
+    align-self: center;
+    justify-content: center;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    border-left-color: rgba(76, 175, 80, 0);
+    border-right-color: rgba(76, 175, 80, 0);
+    border-top-color: rgba(76, 175, 80, 0);
+    border-bottom-color: rgba(76, 175, 80, 0);
+    -unity-text-align: middle-right;
 }
 
 .btn-sm--danger:hover {
-    background-color: rgba(231, 76, 60, 0.3);
+    background-color: rgba(76, 175, 80, 0);
+    width: 30%;
+    height: 20%;
+    font-size: 75%;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    -unity-text-align: middle-right;
+    -unity-font-style: bold;
+    color: rgb(188, 248, 191);
 }

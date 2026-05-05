@@ -54,7 +54,7 @@
                 <ui:TextField name="modal-rename-field" placeholder-string="Nuevo nombre..." class="modal-rename-field unity-disabled" />
                 <ui:VisualElement name="modal-actions" class="modal-actions">
                     <ui:Button name="modal-btn-play" text="▶ Jugar" class="btn-sm btn-sm--play" />
-                    <ui:Button name="modal-btn-rename" text="✏️ Renombrar" class="btn-sm" />
+                    <ui:Button name="modal-btn-rename" text="✏️ Renombrar" class="btn-sm" style="flex-direction: row; -unity-text-align: middle-right;" />
                     <ui:Button name="modal-btn-delete" text="🗑️ Borrar" class="btn-sm btn-sm--danger" />
                 </ui:VisualElement>
                 <ui:VisualElement name="modal-actions-rename" class="modal-actions unity-disabled">
