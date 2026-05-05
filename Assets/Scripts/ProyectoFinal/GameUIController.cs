@@ -10,41 +10,52 @@ namespace RootsOfLife
         [Header("Referencias")]
         [SerializeField] private ItemDatabase itemDatabase;
 
-        // ── UI ROOT ───────────────────────────────
+        // ── ROOT ───────────────────────────────
         private VisualElement _root;
 
-        // ── TABS ─────────────────────────────────
-        private readonly string[] _tabNames = { "mapa", "inventario", "enciclopedia", "mejoras", "ajustes" };
+        // ── TABS ────────────────────────────────
+        private readonly string[] _tabNames =
+        {
+            "mapa", "inventario", "enciclopedia", "mejoras", "ajustes"
+        };
+
         private Dictionary<string, Button> _tabs = new();
         private Dictionary<string, VisualElement> _contents = new();
         private string _activeTab = "mapa";
 
-        // ── PANEL LATERAL ────────────────────────
+        // ── PANEL LATERAL ───────────────────────
         private Label _panelTitle;
         private Label _panelDesc;
         private VisualElement _upgInfo;
         private Button _panelBack;
 
-        // ── MAPA ─────────────────────────────────
+        // Upgrade UI
+        private Label _upgLevel;
+        private Label _upgNext;
+        private Label _upgCapCurr;
+        private Label _upgCapNext;
+        private Button _btnUpgrade;
+        private Label _upgMaxLabel;
+
+        // ── MAPA ────────────────────────────────
         private VisualElement _mapArea;
         private VisualElement _islandCentral;
         private VisualElement _islandOeste;
         private VisualElement _islandEste;
-
         private string _selectedIsland = "";
 
-        // ── INVENTARIO (NUEVO SISTEMA) ───────────
+        // ── INVENTARIO ──────────────────────────
         private InventoryUIController _inventoryUI;
 
-        // ── MEJORAS ──────────────────────────────
+        // ── MEJORAS ─────────────────────────────
         private string _selectedTool = "";
 
         private static readonly List<ToolDef> Tools = new()
         {
             new("regadera", "Regadera", "💧"),
-            new("hacha",    "Hacha",    "🪓"),
-            new("pico",     "Pico",     "⛏️"),
-            new("azada",    "Azada",    "🔨"),
+            new("hacha", "Hacha", "🪓"),
+            new("pico", "Pico", "⛏️"),
+            new("azada", "Azada", "🔨"),
         };
 
         private static readonly Dictionary<string, IslandDef> Islands = new()
@@ -55,9 +66,6 @@ namespace RootsOfLife
         };
 
         // ════════════════════════════════════════
-        // UNITY
-        // ════════════════════════════════════════
-
         private void OnEnable()
         {
             _root = GetComponent<UIDocument>().rootVisualElement;
@@ -65,7 +73,6 @@ namespace RootsOfLife
             BindElements();
             RegisterCallbacks();
 
-            // 🔥 INVENTARIO (nuevo)
             _inventoryUI = new InventoryUIController();
             _inventoryUI.Init(_root, itemDatabase);
 
@@ -73,9 +80,6 @@ namespace RootsOfLife
         }
 
         // ════════════════════════════════════════
-        // BINDING
-        // ════════════════════════════════════════
-
         private void BindElements()
         {
             foreach (var name in _tabNames)
@@ -89,12 +93,20 @@ namespace RootsOfLife
             _upgInfo = _root.Q("upg-info");
             _panelBack = _root.Q<Button>("panel-back");
 
+            _upgLevel = _root.Q<Label>("upg-level");
+            _upgNext = _root.Q<Label>("upg-next");
+            _upgCapCurr = _root.Q<Label>("upg-cap-curr");
+            _upgCapNext = _root.Q<Label>("upg-cap-next");
+            _btnUpgrade = _root.Q<Button>("btn-upgrade");
+            _upgMaxLabel = _root.Q<Label>("upg-max-label");
+
             _mapArea = _root.Q("map-area");
             _islandCentral = _root.Q("island-central");
             _islandOeste = _root.Q("island-oeste");
             _islandEste = _root.Q("island-este");
         }
 
+        // ════════════════════════════════════════
         private void RegisterCallbacks()
         {
             // Tabs
@@ -109,13 +121,23 @@ namespace RootsOfLife
             _islandOeste?.RegisterCallback<ClickEvent>(_ => SelectIsland("oeste"));
             _islandEste?.RegisterCallback<ClickEvent>(_ => SelectIsland("este"));
 
+            // Panel
             _panelBack?.RegisterCallback<ClickEvent>(_ => DeselectAll());
+
+            // Upgrade button
+            _btnUpgrade?.RegisterCallback<ClickEvent>(_ => OnUpgradeTool());
+
+            // ── HERRAMIENTAS ──
+            foreach (var tool in Tools)
+            {
+                string id = tool.Id;
+
+                _root.Q<Button>($"tool-icon-{id}")
+                     ?.RegisterCallback<ClickEvent>(_ => SelectTool(id));
+            }
         }
 
         // ════════════════════════════════════════
-        // TABS
-        // ════════════════════════════════════════
-
         private void SwitchTab(string tab)
         {
             _activeTab = tab;
@@ -129,23 +151,112 @@ namespace RootsOfLife
                 SetVisible(_contents[name], active);
             }
 
-            // 🔥 INVENTARIO NUEVO
-            if (tab == "inventario")
-                _inventoryUI.Refresh();
-
             var (title, desc) = tab switch
             {
-                "mapa" => ("Selección", "Explora las islas."),
-                "inventario" => ("Inventario", "Organiza tus recursos."),
-                "enciclopedia" => ("Enciclopedia", "Descubre el mundo."),
+                "mapa" => ("Mapa", "Explora las islas."),
+                "inventario" => ("Inventario", "Gestiona tus objetos."),
+                "enciclopedia" => ("Enciclopedia", "Descubre criaturas."),
                 "mejoras" => ("Mejoras", "Mejora tus herramientas."),
                 "ajustes" => ("Ajustes", "Configura el juego."),
                 _ => ("", "")
             };
 
             SetPanelText(title, desc);
+
             SetVisible(_upgInfo, false);
             SetVisible(_panelBack, false);
+
+            if (tab == "inventario")
+                _inventoryUI.Refresh();
+
+            if (tab == "mejoras")
+            {
+                RefreshUpgradesUI();   // UI izquierda (lista)
+                ShowUpgradeInfo(GameSession.Instance.Data.GetToolLevel(_selectedTool)); // panel derecha
+            }
+        }
+
+        // ════════════════════════════════════════
+        // MEJORAS
+        // ════════════════════════════════════════
+
+        private void SelectTool(string id)
+        {
+            _selectedTool = id;
+
+            foreach (var t in Tools)
+                _root.Q<Button>($"tool-icon-{t.Id}")
+                     ?.RemoveFromClassList("tool-icon--selected");
+
+            _root.Q<Button>($"tool-icon-{id}")
+                 ?.AddToClassList("tool-icon--selected");
+
+            var tool = Tools.Find(t => t.Id == id);
+            if (tool == null) return;
+
+            int lvl = GameSession.Instance.Data.GetToolLevel(id);
+
+            SetPanelText(tool.Name, "Mejora tu herramienta para ser más eficiente.");
+            ShowUpgradeInfo(lvl);
+        }
+
+        private void ShowUpgradeInfo(int lvl)
+        {
+            SetVisible(_upgInfo, true);
+
+            _upgLevel.text = $"Nivel: Lvl.{lvl}";
+
+            bool max = lvl >= 5;
+
+            SetVisible(_upgNext, !max);
+            SetVisible(_upgCapCurr, !max);
+            SetVisible(_upgCapNext, !max);
+            SetVisible(_btnUpgrade, !max);
+            SetVisible(_upgMaxLabel, max);
+
+            if (!max)
+            {
+                _upgNext.text = $"Siguiente: 20 RC → Lvl {lvl + 1}";
+                _upgCapCurr.text = $"Capacidad: {lvl * 10}";
+                _upgCapNext.text = $"Nueva capacidad: {(lvl + 1) * 10}";
+            }
+        }
+
+        private void OnUpgradeTool()
+        {
+            if (_selectedTool == null) return;
+
+            if (!GameSession.Instance.Data.UpgradeTool(_selectedTool))
+                return;
+
+            GameSession.Instance.Save();
+
+            RefreshUpgradesUI();   // UI izquierda (lista)
+            ShowUpgradeInfo(GameSession.Instance.Data.GetToolLevel(_selectedTool)); // panel derecha
+        }
+
+        private void RefreshUpgradesUI()
+        {
+            foreach (var tool in Tools)
+            {
+                int lvl = GameSession.Instance.Data.GetToolLevel(tool.Id);
+
+                // actualizar texto
+                var label = _root.Q<Label>($"tool-lvl-{tool.Id}");
+                if (label != null)
+                    label.text = $"Lvl. {lvl}";
+                // actualizar barras si las tienes en UI
+                var bars = _root.Q($"bars-{tool.Id}")
+                    ?.Query(className: "level-bar").ToList();
+
+                if (bars == null) continue;
+
+                for (int i = 0; i < bars.Count; i++)
+                {
+                    bars[i].EnableInClassList("level-bar--active", i < lvl);
+                    bars[i].EnableInClassList("level-bar--current", i == lvl - 1);
+                }
+            }
         }
 
         // ════════════════════════════════════════
@@ -174,22 +285,18 @@ namespace RootsOfLife
 
         private void SetPanelText(string title, string desc)
         {
-            if (_panelTitle != null) _panelTitle.text = title;
-            if (_panelDesc != null) _panelDesc.text = desc;
+            _panelTitle.text = title;
+            _panelDesc.text = desc;
         }
 
-        private static void SetVisible(VisualElement el, bool visible)
+        private static void SetVisible(VisualElement el, bool v)
         {
-            if (el == null) return;
-            el.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
+            if (el != null)
+                el.style.display = v ? DisplayStyle.Flex : DisplayStyle.None;
         }
     }
 
-    // ════════════════════════════════════════
-    // AUX
-    // ════════════════════════════════════════
-
-    internal sealed class ToolDef
+    internal class ToolDef
     {
         public string Id;
         public string Name;
@@ -203,7 +310,7 @@ namespace RootsOfLife
         }
     }
 
-    internal sealed class IslandDef
+    internal class IslandDef
     {
         public string Name;
         public string Desc;

@@ -323,8 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3b70ffa25d6144181648d98409c4cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  database: {fileID: 0}
-  menuSceneName: MenuScene
+  itemDatabase: {fileID: 11400000, guid: 483838fcf4b2d2e4991ec37edf112583, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

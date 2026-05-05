@@ -1,39 +1,19 @@
-/*  ╔══════════════════════════════════════════════════════════════╗
-    ║  Roots of Life — GameUI.uss                                  ║
-    ║  Paleta:                                                     ║
-    ║    dark-green  #1e3a1e   mid-green    #2d5a2d               ║
-    ║    light-green #3d8b3d   bright-green #4caf50               ║
-    ║    brown       #5c3317   brown-mid    #7a4a2a               ║
-    ║    brown-light #c4935a   sand         #d4a96a               ║
-    ║    sand-light  #e8c88a   text-white   #f5f0e0               ║
-    ║    text-gold   #f0d060                                      ║
-    ╚══════════════════════════════════════════════════════════════╝ */
-
-
-/* ═══════════════════════════════════════════════
-   ROOT
-   ═══════════════════════════════════════════════ */
 .game-root {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: #2d5a2d;
+    background-color: rgb(45, 90, 45);
 }
 
-/* Oculta cualquier elemento marcado con esta clase */
 .unity-disabled {
     display: none;
 }
 
-
-/* ═══════════════════════════════════════════════
-   BARRA DE PESTAÑAS
-   ═══════════════════════════════════════════════ */
 .topbar {
     flex-direction: row;
     height: 44px;
     border-bottom-width: 2px;
-    border-bottom-color: #d4a96a;
+    border-bottom-color: rgb(212, 169, 106);
     flex-shrink: 0;
 }
 
@@ -42,44 +22,60 @@
     height: 100%;
     border-width: 0;
     border-radius: 0;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-BoldItalic.asset");
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
     font-size: 13px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
     cursor: link;
     transition: background-color 0.15s ease;
-    /* Eliminar padding/margen interno por defecto de Button */
     padding: 0;
     margin: 0;
+    border-bottom-color: rgba(240, 208, 96, 0);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
-/* Colores escalonados igual que el PDF */
-.tab--mapa         { background-color: #5c3317; }
-.tab--inventario   { background-color: #c4935a; }
-.tab--enciclopedia { background-color: #b8804a; }
-.tab--mejoras      { background-color: #a86a3a; }
-.tab--ajustes      { background-color: #9a5c2e; }
+.tab--mapa {
+    background-color: rgb(92, 51, 23);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+}
+
+.tab--inventario {
+    background-color: rgb(196, 147, 90);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+}
+
+.tab--enciclopedia {
+    background-color: rgb(184, 128, 74);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+}
+
+.tab--mejoras {
+    background-color: rgb(168, 106, 58);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+}
+
+.tab--ajustes {
+    background-color: rgb(154, 92, 46);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
+}
 
 .tab--active {
-    filter: brightness(1.25);
+    filter: ;
     border-bottom-width: 3px;
-    border-bottom-color: #f0d060;
+    border-bottom-color: rgb(240, 208, 96);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .tab:hover {
-    filter: brightness(1.1);
+    filter: ;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
-
-/* ═══════════════════════════════════════════════
-   ÁREA DE CONTENIDO (main-area + side-panel)
-   ═══════════════════════════════════════════════ */
 .game-content {
     flex-direction: row;
     flex: 1;
     overflow: hidden;
 }
 
-/* Cada pestaña ocupa todo el espacio de main-area */
 .tab-content {
     flex: 1;
     overflow: hidden;
@@ -90,50 +86,49 @@
 }
 
 .placeholder-label {
-    color: #e8c88a;
+    color: rgb(232, 200, 138);
     font-size: 14px;
     padding: 24px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
-
-/* ═══════════════════════════════════════════════
-   PANEL LATERAL DERECHO
-   ═══════════════════════════════════════════════ */
 .side-panel {
     width: 260px;
     flex-shrink: 0;
-    background-color: #1e3a1e;
+    background-color: rgb(30, 58, 30);
     border-left-width: 2px;
-    border-left-color: #d4a96a;
+    border-left-color: rgb(212, 169, 106);
     padding: 20px 16px;
     flex-direction: column;
     align-items: stretch;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
 .panel-title {
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-BoldItalic.asset");
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
     font-size: 22px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
     -unity-text-align: upper-right;
     margin-bottom: 12px;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .panel-desc {
     font-size: 13px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
     white-space: normal;
     -unity-text-align: upper-left;
     line-height: 1.6;
+    -unity-font: url('project://database/Assets/fonts/Nunito-VariableFont_wght.ttf?fileID=12800000&guid=6f590c70935960247890ca094bff7f7f&type=3#Nunito-VariableFont_wght');
 }
 
-/* Botón "Volver" del mapa */
 .panel-back-btn {
     margin-top: auto;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-BoldItalic.asset");
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
     font-size: 13px;
-    color: #f5f0e0;
-    background-color: #5c3317;
-    border-color: #d4a96a;
+    color: rgb(245, 240, 224);
+    background-color: rgb(92, 51, 23);
+    border-color: rgb(212, 169, 106);
     border-width: 2px;
     border-radius: 20px;
     padding: 10px 20px;
@@ -143,27 +138,21 @@
 }
 
 .panel-back-btn:hover {
-    background-color: #7a4a2a;
+    background-color: rgb(122, 74, 42);
 }
 
-
-/* ═══════════════════════════════════════════════
-   MAPA
-   ═══════════════════════════════════════════════ */
 .map-area {
     width: 100%;
     height: 100%;
-    background-color: #4caf50;
+    background-color: rgb(76, 175, 80);
     position: relative;
-    /* El cursor "mano" en modo drag se pone por código */
     cursor: pan;
     overflow: hidden;
 }
 
-/* Islas: posición absoluta gestionada desde C# o USS */
 .island {
     position: absolute;
-    background-color: #d4a96a;
+    background-color: rgb(212, 169, 106);
     border-width: 3px;
     border-color: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
@@ -175,66 +164,60 @@
 
 .island:hover {
     scale: 1.05 1.05;
-    border-color: rgba(255, 255, 255, 1.0);
+    border-color: rgb(255, 255, 255);
 }
 
 .island--selected {
-    border-color: #f0d060;
+    border-color: rgb(240, 208, 96);
     border-width: 4px;
 }
 
-/* Tamaños y posiciones de cada isla */
 .island--central {
     width: 200px;
     height: 160px;
-    top:  80px;
+    top: 80px;
     left: 180px;
 }
 
 .island--oeste {
-    width:  130px;
+    width: 130px;
     height: 120px;
-    top:  160px;
-    left:  30px;
+    top: 160px;
+    left: 30px;
 }
 
 .island--este {
-    width:  100px;
+    width: 100px;
     height: 150px;
-    top:   50px;
+    top: 50px;
     left: 400px;
 }
 
 .island-label {
     font-size: 12px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    color: #5c3317;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    color: rgb(92, 51, 23);
     -unity-text-align: middle-center;
 }
 
-
-/* ═══════════════════════════════════════════════
-   INVENTARIO
-   ═══════════════════════════════════════════════ */
 .inv-area {
     padding: 16px;
     flex-direction: column;
     align-items: flex-start;
 }
 
-/* Grid 6 columnas */
 .inv-grid {
     flex-direction: row;
     flex-wrap: wrap;
-    width: 414px;   /* 6 × 64px + 5 × 6px gap */
+    width: 414px;
 }
 
 .inv-slot {
     width: 64px;
     height: 64px;
-    background-color: #d4a96a;
+    background-color: rgb(212, 169, 106);
     border-width: 2px;
-    border-color: #7a4a2a;
+    border-color: rgb(122, 74, 42);
     border-radius: 8px;
     margin: 3px;
     align-items: center;
@@ -246,59 +229,53 @@
 }
 
 .inv-slot:hover {
-    border-color: #f0d060;
+    border-color: rgb(240, 208, 96);
 }
 
-/* Slot seleccionado (primer clic para iniciar drag en código) */
 .inv-slot--selected {
     border-style: dashed;
-    border-color: #f5f0e0;
-    background-color: #c4935a;
+    border-color: rgb(245, 240, 224);
+    background-color: rgb(196, 147, 90);
 }
 
-/* Slot vacío: ligera opacidad */
 .inv-slot--empty {
     opacity: 0.6;
 }
 
-/* Resaltado durante drag-over */
 .inv-slot--drag-over {
-    background-color: #3d8b3d;
-    border-color: #f0d060;
+    background-color: rgb(61, 139, 61);
+    border-color: rgb(240, 208, 96);
 }
 
-/* El icono del ítem (Label o Image dentro del slot) */
 .inv-slot > .item-icon {
     font-size: 26px;
     -unity-text-align: middle-center;
 }
 
-/* Contador de cantidad — esquina inferior derecha */
 .item-count {
     position: absolute;
     bottom: 3px;
     right: 5px;
     font-size: 11px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    color: #5c3317;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    color: rgb(92, 51, 23);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 0 3px;
     border-radius: 4px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
-/* Elemento fantasma que sigue al cursor durante el drag */
 .inv-drag-ghost {
     position: absolute;
     width: 64px;
     height: 64px;
     background-color: rgba(212, 169, 106, 0.8);
     border-width: 2px;
-    border-color: #f0d060;
+    border-color: rgb(240, 208, 96);
     border-radius: 8px;
     align-items: center;
     justify-content: center;
     opacity: 0.85;
-    /* Posición controlada por código con .style.left / .style.top */
 }
 
 .inv-drag-ghost > .item-icon {
@@ -306,30 +283,24 @@
     -unity-text-align: middle-center;
 }
 
-
-/* ═══════════════════════════════════════════════
-   MEJORAS
-   ═══════════════════════════════════════════════ */
 .upg-area {
     padding: 20px;
     flex-direction: column;
     align-items: flex-start;
 }
 
-/* Fila de herramienta */
 .tool-row {
     flex-direction: row;
     align-items: center;
     margin-bottom: 16px;
 }
 
-/* Icono / botón de herramienta */
 .tool-icon {
     width: 56px;
     height: 56px;
-    background-color: #5c3317;
+    background-color: rgb(92, 51, 23);
     border-width: 3px;
-    border-color: #d4a96a;
+    border-color: rgb(212, 169, 106);
     border-radius: 8px;
     font-size: 28px;
     -unity-text-align: middle-center;
@@ -340,27 +311,30 @@
     flex-shrink: 0;
 }
 
-.tool-icon:hover,
-.tool-icon--selected {
-    background-color: #7a4a2a;
+.tool-icon:hover {
+    background-color: rgb(122, 74, 42);
     border-style: dashed;
-    border-color: #f5f0e0;
+    border-color: rgb(245, 240, 224);
 }
 
-/* Contenedor de las 5 barras */
+.tool-icon--selected {
+    background-color: rgb(122, 74, 42);
+    border-style: dashed;
+    border-color: rgb(245, 240, 224);
+}
+
 .level-bars {
     flex-direction: row;
     align-items: center;
     margin-right: 12px;
 }
 
-/* Barra individual */
 .level-bar {
     width: 48px;
     height: 30px;
-    background-color: #d4a96a;
+    background-color: rgb(212, 169, 106);
     border-width: 2px;
-    border-color: #7a4a2a;
+    border-color: rgb(122, 74, 42);
     margin-right: 4px;
     position: relative;
     align-items: flex-start;
@@ -368,12 +342,11 @@
 }
 
 .level-bar--active {
-    background-color: #e8c88a;
+    background-color: rgb(232, 200, 138);
 }
 
-/* Barra del nivel actual: borde blanco */
 .level-bar--current {
-    border-color: #f5f0e0;
+    border-color: rgb(245, 240, 224);
     border-width: 2px;
 }
 
@@ -382,85 +355,90 @@
     bottom: 2px;
     left: 4px;
     font-size: 10px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    color: #5c3317;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    color: rgb(92, 51, 23);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
-/* Nombre y nivel de la herramienta */
 .tool-info {
     flex-direction: column;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .tool-name {
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 16px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .tool-lvl {
     font-size: 12px;
-    color: #e8c88a;
+    color: rgb(232, 200, 138);
     margin-top: 2px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
-/* ── Bloque info upgrade en el side panel ── */
 .upg-info {
     flex-direction: column;
     margin-top: 12px;
     border-top-width: 1px;
-    border-top-color: #d4a96a;
+    border-top-color: rgb(212, 169, 106);
     padding-top: 12px;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .upg-level {
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 18px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
     margin-bottom: 6px;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .upg-next {
     font-size: 12px;
-    color: #e8c88a;
+    color: rgb(232, 200, 138);
     margin-bottom: 4px;
     white-space: normal;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
 .upg-capacity {
     font-size: 12px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
     margin-bottom: 2px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-VariableFont_wght.ttf?fileID=12800000&guid=6f590c70935960247890ca094bff7f7f&type=3#Nunito-VariableFont_wght');
 }
 
 .btn-upgrade {
     margin-top: 8px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 13px;
     padding: 8px 14px;
     border-radius: 8px;
     border-width: 2px;
-    border-color: #d4a96a;
-    background-color: #3d8b3d;
-    color: #f5f0e0;
+    border-color: rgb(212, 169, 106);
+    background-color: rgb(61, 139, 61);
+    color: rgb(245, 240, 224);
     cursor: link;
     transition: background-color 0.15s ease;
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .btn-upgrade:hover {
-    background-color: #4caf50;
+    background-color: rgb(76, 175, 80);
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .upg-max-label {
-    color: #f0d060;
+    color: rgb(240, 208, 96);
     font-size: 12px;
     margin-top: 8px;
     white-space: normal;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
 }
 
-
-/* ═══════════════════════════════════════════════
-   AJUSTES
-   ═══════════════════════════════════════════════ */
 .settings-area {
     padding: 32px;
     flex-direction: column;
@@ -474,7 +452,7 @@
 
 .setting-label {
     font-size: 13px;
-    color: #e8c88a;
+    color: rgb(232, 200, 138);
     font-weight: 600;
     margin-bottom: 6px;
 }
@@ -484,45 +462,38 @@
     align-items: center;
 }
 
-/* Slider — se estiliza la pista y el thumb */
 .setting-slider {
     width: 320px;
     margin-right: 12px;
 }
 
-/* Pista */
 .setting-slider > .unity-base-slider__tracker {
-    background-color: #7a4a2a;
+    background-color: rgb(122, 74, 42);
     border-radius: 4px;
     height: 6px;
 }
 
-/* Relleno izquierdo (progreso) */
-.setting-slider > .unity-base-slider__drag-container
-                > .unity-base-slider__tracker {
-    background-color: #c4935a;
+.setting-slider > .unity-base-slider__drag-container > .unity-base-slider__tracker {
+    background-color: rgb(196, 147, 90);
 }
 
-/* Thumb (círculo) */
-.setting-slider > .unity-base-slider__drag-container
-                > .unity-base-slider__dragger {
+.setting-slider > .unity-base-slider__drag-container > .unity-base-slider__dragger {
     width: 18px;
     height: 18px;
     border-radius: 9px;
-    background-color: #c4935a;
+    background-color: rgb(196, 147, 90);
     border-width: 2px;
-    border-color: #d4a96a;
+    border-color: rgb(212, 169, 106);
     margin-top: -6px;
 }
 
-.setting-slider > .unity-base-slider__drag-container
-                > .unity-base-slider__dragger:hover {
-    background-color: #e8c88a;
+.setting-slider > .unity-base-slider__drag-container > .unity-base-slider__dragger:hover {
+    background-color: rgb(232, 200, 138);
 }
 
 .setting-value {
     font-size: 13px;
-    color: #f5f0e0;
+    color: rgb(245, 240, 224);
     min-width: 28px;
     -unity-text-align: middle-left;
 }
