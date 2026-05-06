@@ -184,7 +184,7 @@
                     <ui:VisualElement name="setting-textsize" class="setting-row" style="width: auto; height: auto;">
                         <ui:Label text="Tamaño del texto" class="setting-label" />
                         <ui:VisualElement class="setting-slider-row" style="width: auto; height: auto;">
-                            <ui:Slider name="slider-textsize" low-value="10" high-value="24" value="14" class="setting-slider" style="width: auto; height: auto;" />
+                            <ui:Slider name="slider-textsize" low-value="0.5" high-value="2" value="14" class="setting-slider" style="width: auto; height: auto;" />
                             <ui:Label name="val-textsize" text="14" class="setting-value" />
                         </ui:VisualElement>
                     </ui:VisualElement>
