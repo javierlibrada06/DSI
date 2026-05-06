@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/ProyectoFinal/GameUI.uss?fileID=7433441132597879392&amp;guid=9998a3f5b8640f342886ddab553ad193&amp;type=3#GameUI" />
+    <Style src="project://database/Assets/UI%20Toolkit/ProyectoFinal/Game.uss?fileID=7433441132597879392&amp;guid=e24be124db2d6ef448821e352131e018&amp;type=3#Game" />
     <ui:VisualElement name="game-root" class="game-root">
         <ui:VisualElement name="topbar" class="topbar">
             <ui:Button name="tab-mapa" text="Mapa" class="tab tab--mapa     tab--active" />
