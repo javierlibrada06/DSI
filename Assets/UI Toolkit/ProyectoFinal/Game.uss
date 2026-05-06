@@ -1,40 +1,21 @@
-﻿/*  ╔══════════════════════════════════════════════════════════════╗
-    ║  Roots of Life — GameUI.uss                                  ║
-    ║  Paleta:                                                     ║
-    ║    dark-green  #1e3a1e   mid-green    #2d5a2d               ║
-    ║    light-green #3d8b3d   bright-green #4caf50               ║
-    ║    brown       #5c3317   brown-mid    #7a4a2a               ║
-    ║    brown-light #c4935a   sand         #d4a96a               ║
-    ║    sand-light  #e8c88a   text-white   #f5f0e0               ║
-    ║    text-gold   #f0d060                                      ║
-    ╚══════════════════════════════════════════════════════════════╝ */
-
-
-/* ═══════════════════════════════════════════════
-   ROOT
-   ═══════════════════════════════════════════════ */
 .game-root {
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: #2d5a2d;
+    background-color: rgb(45, 90, 45);
 }
 
-/* Oculta cualquier elemento marcado con esta clase */
 .unity-disabled {
     display: none;
 }
 
-
-/* ═══════════════════════════════════════════════
-   BARRA DE PESTAÑAS
-   ═══════════════════════════════════════════════ */
 .topbar {
     flex-direction: row;
-    height: 44px;
+    height: 10%;
     border-bottom-width: 2px;
-    border-bottom-color: #d4a96a;
+    border-bottom-color: rgb(212, 169, 106);
     flex-shrink: 0;
+    width: 100%;
 }
 
 .tab {
@@ -42,128 +23,168 @@
     height: 100%;
     border-width: 0;
     border-radius: 0;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-BoldItalic.asset");
-    font-size: 13px;
-    color: #f5f0e0;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
+    font-size: 32px;
+    color: rgb(245, 240, 224);
     cursor: link;
     transition: background-color 0.15s ease;
-    /* Eliminar padding/margen interno por defecto de Button */
     padding: 0;
     margin: 0;
+    width: 100%;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    background-color: rgb(184, 128, 74);
 }
 
-/* Colores escalonados igual que el PDF */
-.tab--mapa         { background-color: #5c3317; }
-.tab--inventario   { background-color: #c4935a; }
-.tab--enciclopedia { background-color: #b8804a; }
-.tab--mejoras      { background-color: #a86a3a; }
-.tab--ajustes      { background-color: #9a5c2e; }
+.tab--mapa {
+    background-color: rgb(184, 128, 74);
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    -unity-font-definition: initial;
+    font-size: 32px;
+}
+
+.tab--inventario {
+    background-color: rgb(184, 128, 74);
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    font-size: 32px;
+}
+
+.tab--enciclopedia {
+    background-color: rgb(184, 128, 74);
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    font-size: 32px;
+}
+
+.tab--mejoras {
+    background-color: rgb(184, 128, 74);
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    font-size: 32px;
+}
+
+.tab--ajustes {
+    background-color: rgb(184, 128, 74);
+    font-size: 32px;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+}
 
 .tab--active {
-    filter: brightness(1.25);
-    border-bottom-width: 3px;
-    border-bottom-color: #f0d060;
+    filter: ;
+    border-bottom-width: 0;
+    border-bottom-color: rgb(240, 208, 96);
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    font-size: 32px;
+    background-color: rgb(92, 51, 23);
+    color: rgb(212, 169, 106);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
 }
 
 .tab:hover {
-    filter: brightness(1.1);
+    filter: ;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    font-size: 32px;
+    background-color: rgb(168, 106, 58);
 }
 
-
-/* ═══════════════════════════════════════════════
-   ÁREA DE CONTENIDO (main-area + side-panel)
-   ═══════════════════════════════════════════════ */
 .game-content {
     flex-direction: row;
     flex: 1;
     overflow: hidden;
+    width: 100%;
+    height: 90%;
 }
 
-/* Cada pestaña ocupa todo el espacio de main-area */
 .tab-content {
     flex: 1;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .tab-content--active {
     display: flex;
+    width: 100%;
+    height: 100%;
 }
 
 .placeholder-label {
-    color: #e8c88a;
-    font-size: 14px;
+    color: rgb(232, 200, 138);
+    font-size: 32px;
     padding: 24px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
-
-/* ═══════════════════════════════════════════════
-   PANEL LATERAL DERECHO
-   ═══════════════════════════════════════════════ */
 .side-panel {
-    width: 260px;
+    width: 30%;
     flex-shrink: 0;
-    background-color: #1e3a1e;
+    background-color: rgb(30, 58, 30);
     border-left-width: 2px;
-    border-left-color: #d4a96a;
+    border-left-color: rgb(212, 169, 106);
     padding: 20px 16px;
     flex-direction: column;
     align-items: stretch;
+    height: 100%;
 }
 
 .panel-title {
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-BoldItalic.asset");
-    font-size: 22px;
-    color: #f5f0e0;
-    -unity-text-align: upper-right;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
+    font-size: 45px;
+    color: rgb(245, 240, 224);
+    -unity-text-align: middle-left;
     margin-bottom: 12px;
+    width: 100%;
+    height: 10%;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .panel-desc {
-    font-size: 13px;
-    color: #f5f0e0;
+    font-size: 24px;
+    color: rgb(245, 240, 224);
     white-space: normal;
     -unity-text-align: upper-left;
     line-height: 1.6;
+    width: 100%;
+    height: 12%;
 }
 
-/* Botón "Volver" del mapa */
 .panel-back-btn {
     margin-top: auto;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-BoldItalic.asset");
-    font-size: 13px;
-    color: #f5f0e0;
-    background-color: #5c3317;
-    border-color: #d4a96a;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
+    font-size: 24px;
+    color: rgb(245, 240, 224);
+    background-color: rgb(92, 51, 23);
+    border-color: rgb(212, 169, 106);
     border-width: 2px;
     border-radius: 20px;
     padding: 10px 20px;
     cursor: link;
     align-self: flex-end;
     transition: background-color 0.15s ease;
+    width: 30%;
+    height: 5%;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .panel-back-btn:hover {
-    background-color: #7a4a2a;
+    background-color: rgba(122, 74, 42, 0.9);
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    width: 30%;
+    height: 5%;
+    font-size: 24px;
 }
 
-
-/* ═══════════════════════════════════════════════
-   MAPA
-   ═══════════════════════════════════════════════ */
 .map-area {
     width: 100%;
     height: 100%;
-    background-color: #4caf50;
+    background-color: rgb(76, 175, 80);
     position: relative;
-    /* El cursor "mano" en modo drag se pone por código */
     cursor: pan;
     overflow: hidden;
 }
 
-/* Islas: posición absoluta gestionada desde C# o USS */
 .island {
     position: absolute;
-    background-color: #d4a96a;
+    background-color: rgb(212, 169, 106);
     border-width: 3px;
     border-color: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
@@ -175,66 +196,67 @@
 
 .island:hover {
     scale: 1.05 1.05;
-    border-color: rgba(255, 255, 255, 1.0);
+    border-color: rgb(255, 255, 255);
 }
 
 .island--selected {
-    border-color: #f0d060;
+    border-color: rgb(240, 208, 96);
     border-width: 4px;
 }
 
-/* Tamaños y posiciones de cada isla */
 .island--central {
     width: 200px;
     height: 160px;
-    top:  80px;
+    top: 80px;
     left: 180px;
 }
 
 .island--oeste {
-    width:  130px;
+    width: 130px;
     height: 120px;
-    top:  160px;
-    left:  30px;
+    top: 160px;
+    left: 30px;
 }
 
 .island--este {
-    width:  100px;
+    width: 100px;
     height: 150px;
-    top:   50px;
+    top: 50px;
     left: 400px;
 }
 
 .island-label {
     font-size: 12px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    color: #5c3317;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    color: rgb(92, 51, 23);
     -unity-text-align: middle-center;
 }
 
-
-/* ═══════════════════════════════════════════════
-   INVENTARIO
-   ═══════════════════════════════════════════════ */
 .inv-area {
     padding: 16px;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    height: 100%;
 }
 
-/* Grid 6 columnas */
 .inv-grid {
     flex-direction: row;
     flex-wrap: wrap;
-    width: 414px;   /* 6 × 64px + 5 × 6px gap */
+    width: 70%;
+    height: 70%;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
 }
 
 .inv-slot {
-    width: 64px;
-    height: 64px;
-    background-color: #d4a96a;
+    width: 15%;
+    height: 20%;
+    background-color: rgb(212, 169, 106);
     border-width: 2px;
-    border-color: #7a4a2a;
+    border-color: rgb(122, 74, 42);
     border-radius: 8px;
     margin: 3px;
     align-items: center;
@@ -246,90 +268,96 @@
 }
 
 .inv-slot:hover {
-    border-color: #f0d060;
+    border-color: rgb(240, 208, 96);
+    width: 15%;
+    height: 20%;
 }
 
-/* Slot seleccionado (primer clic para iniciar drag en código) */
 .inv-slot--selected {
     border-style: dashed;
-    border-color: #f5f0e0;
-    background-color: #c4935a;
+    border-color: rgb(245, 240, 224);
+    background-color: rgb(196, 147, 90);
+    width: 15%;
+    height: 20%;
 }
 
-/* Slot vacío: ligera opacidad */
 .inv-slot--empty {
     opacity: 0.6;
+    width: 15%;
+    height: 20%;
 }
 
-/* Resaltado durante drag-over */
 .inv-slot--drag-over {
-    background-color: #3d8b3d;
-    border-color: #f0d060;
+    background-color: rgb(61, 139, 61);
+    border-color: rgb(240, 208, 96);
+    width: 15%;
+    height: 20%;
 }
 
-/* El icono del ítem (Label o Image dentro del slot) */
 .inv-slot > .item-icon {
     font-size: 26px;
     -unity-text-align: middle-center;
+    width: 15%;
+    height: 20%;
 }
 
-/* Contador de cantidad — esquina inferior derecha */
 .item-count {
     position: absolute;
     bottom: 3px;
     right: 5px;
     font-size: 11px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    color: #5c3317;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    color: rgb(92, 51, 23);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 0 3px;
     border-radius: 4px;
+    width: 20%;
+    height: 20%;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
-/* Elemento fantasma que sigue al cursor durante el drag */
 .inv-drag-ghost {
     position: absolute;
     width: 64px;
     height: 64px;
     background-color: rgba(212, 169, 106, 0.8);
     border-width: 2px;
-    border-color: #f0d060;
+    border-color: rgb(240, 208, 96);
     border-radius: 8px;
     align-items: center;
     justify-content: center;
     opacity: 0.85;
-    /* Posición controlada por código con .style.left / .style.top */
 }
 
 .inv-drag-ghost > .item-icon {
     font-size: 26px;
     -unity-text-align: middle-center;
+    width: 64px;
+    height: 64px;
 }
 
-
-/* ═══════════════════════════════════════════════
-   MEJORAS
-   ═══════════════════════════════════════════════ */
 .upg-area {
     padding: 20px;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    height: 100%;
 }
 
-/* Fila de herramienta */
 .tool-row {
     flex-direction: row;
     align-items: center;
     margin-bottom: 16px;
+    width: 100%;
+    height: 15%;
 }
 
-/* Icono / botón de herramienta */
 .tool-icon {
-    width: 56px;
-    height: 56px;
-    background-color: #5c3317;
+    width: 8%;
+    height: 80%;
+    background-color: rgb(92, 51, 23);
     border-width: 3px;
-    border-color: #d4a96a;
+    border-color: rgb(212, 169, 106);
     border-radius: 8px;
     font-size: 28px;
     -unity-text-align: middle-center;
@@ -338,29 +366,41 @@
     padding: 0;
     margin-right: 12px;
     flex-shrink: 0;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
-.tool-icon:hover,
-.tool-icon--selected {
-    background-color: #7a4a2a;
+.tool-icon:hover {
+    background-color: rgb(122, 74, 42);
     border-style: dashed;
-    border-color: #f5f0e0;
+    border-color: rgb(245, 240, 224);
+    width: 8%;
+    height: 80%;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
-/* Contenedor de las 5 barras */
+.tool-icon--selected {
+    background-color: rgb(122, 74, 42);
+    border-style: dashed;
+    border-color: rgb(245, 240, 224);
+    width: 8%;
+    height: 80%;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+}
+
 .level-bars {
     flex-direction: row;
     align-items: center;
     margin-right: 12px;
+    width: 30%;
+    height: 60%;
 }
 
-/* Barra individual */
 .level-bar {
-    width: 48px;
-    height: 30px;
-    background-color: #d4a96a;
+    width: 20%;
+    height: 100%;
+    background-color: rgb(212, 169, 106);
     border-width: 2px;
-    border-color: #7a4a2a;
+    border-color: rgb(122, 74, 42);
     margin-right: 4px;
     position: relative;
     align-items: flex-start;
@@ -368,161 +408,197 @@
 }
 
 .level-bar--active {
-    background-color: #e8c88a;
+    background-color: rgb(232, 200, 138);
+    width: 20%;
+    height: 100%;
 }
 
-/* Barra del nivel actual: borde blanco */
 .level-bar--current {
-    border-color: #f5f0e0;
+    border-color: rgb(245, 240, 224);
     border-width: 2px;
+    width: 20%;
+    height: 100%;
 }
 
 .bar-num {
     position: absolute;
     bottom: 2px;
     left: 4px;
-    font-size: 10px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    color: #5c3317;
+    font-size: 24px;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    color: rgb(92, 51, 23);
+    width: 100%;
+    height: 100%;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
-/* Nombre y nivel de la herramienta */
 .tool-info {
     flex-direction: column;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    width: 30%;
+    height: 50%;
 }
 
 .tool-name {
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    font-size: 16px;
-    color: #f5f0e0;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    font-size: 32px;
+    color: rgb(245, 240, 224);
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .tool-lvl {
-    font-size: 12px;
-    color: #e8c88a;
+    font-size: 24px;
+    color: rgb(232, 200, 138);
     margin-top: 2px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
+    -unity-font-style: normal;
 }
 
-/* ── Bloque info upgrade en el side panel ── */
 .upg-info {
     flex-direction: column;
-    margin-top: 12px;
+    margin-top: 10%;
     border-top-width: 1px;
-    border-top-color: #d4a96a;
-    padding-top: 12px;
+    border-top-color: rgb(212, 169, 106);
+    padding-top: 5%;
 }
 
 .upg-level {
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    font-size: 18px;
-    color: #f5f0e0;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    font-size: 32px;
+    color: rgb(245, 240, 224);
     margin-bottom: 6px;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    width: 100%;
+    height: 20%;
 }
 
 .upg-next {
-    font-size: 12px;
-    color: #e8c88a;
-    margin-bottom: 4px;
+    font-size: 24px;
+    color: rgb(232, 200, 138);
+    margin-bottom: 0;
     white-space: normal;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
+    width: 100%;
+    height: 15%;
 }
 
 .upg-capacity {
-    font-size: 12px;
-    color: #f5f0e0;
+    font-size: 20px;
+    color: rgb(245, 240, 224);
     margin-bottom: 2px;
+    width: 100%;
+    height: 15%;
 }
 
 .btn-upgrade {
-    margin-top: 8px;
-    -unity-font-definition: url("project://database/Assets/Fonts/Nunito-Bold.asset");
-    font-size: 13px;
+    margin-top: 2%;
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
+    font-size: 24px;
     padding: 8px 14px;
     border-radius: 8px;
     border-width: 2px;
-    border-color: #d4a96a;
-    background-color: #3d8b3d;
-    color: #f5f0e0;
+    border-color: rgb(212, 169, 106);
+    background-color: rgb(61, 139, 61);
+    color: rgb(245, 240, 224);
     cursor: link;
     transition: background-color 0.15s ease;
+    width: 40%;
+    height: 20%;
+    align-self: center;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    -unity-text-align: middle-center;
 }
 
 .btn-upgrade:hover {
-    background-color: #4caf50;
+    background-color: rgb(76, 175, 80);
 }
 
 .upg-max-label {
-    color: #f0d060;
-    font-size: 12px;
-    margin-top: 8px;
+    color: rgb(240, 208, 96);
+    font-size: 24px;
+    margin-top: 3%;
     white-space: normal;
+    width: 100%;
+    height: 20%;
+    padding-top: 3%;
 }
 
-
-/* ═══════════════════════════════════════════════
-   AJUSTES
-   ═══════════════════════════════════════════════ */
 .settings-area {
     padding: 32px;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
+    height: 100%;
 }
 
 .setting-row {
     flex-direction: column;
     margin-bottom: 28px;
+    width: 100%;
+    height: 15%;
 }
 
 .setting-label {
-    font-size: 13px;
-    color: #e8c88a;
+    font-size: 32px;
+    color: rgb(255, 255, 255);
     font-weight: 600;
     margin-bottom: 6px;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    -unity-font-style: bold;
+    width: 50%;
 }
 
 .setting-slider-row {
     flex-direction: row;
     align-items: center;
+    width: 50%;
+    height: 100%;
 }
 
-/* Slider — se estiliza la pista y el thumb */
 .setting-slider {
-    width: 320px;
+    width: 50%;
     margin-right: 12px;
+    font-size: 24px;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
+    height: 100%;
 }
 
-/* Pista */
 .setting-slider > .unity-base-slider__tracker {
-    background-color: #7a4a2a;
+    background-color: rgb(122, 74, 42);
     border-radius: 4px;
     height: 6px;
 }
 
-/* Relleno izquierdo (progreso) */
-.setting-slider > .unity-base-slider__drag-container
-                > .unity-base-slider__tracker {
-    background-color: #c4935a;
+.setting-slider > .unity-base-slider__drag-container > .unity-base-slider__tracker {
+    background-color: rgb(196, 147, 90);
 }
 
-/* Thumb (círculo) */
-.setting-slider > .unity-base-slider__drag-container
-                > .unity-base-slider__dragger {
+.setting-slider > .unity-base-slider__drag-container > .unity-base-slider__dragger {
     width: 18px;
     height: 18px;
     border-radius: 9px;
-    background-color: #c4935a;
+    background-color: rgb(196, 147, 90);
     border-width: 2px;
-    border-color: #d4a96a;
+    border-color: rgb(212, 169, 106);
     margin-top: -6px;
 }
 
-.setting-slider > .unity-base-slider__drag-container
-                > .unity-base-slider__dragger:hover {
-    background-color: #e8c88a;
+.setting-slider > .unity-base-slider__drag-container > .unity-base-slider__dragger:hover {
+    background-color: rgb(232, 200, 138);
 }
 
 .setting-value {
-    font-size: 13px;
-    color: #f5f0e0;
+    font-size: 24px;
+    color: rgb(232, 200, 138);
     min-width: 28px;
     -unity-text-align: middle-left;
+    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
