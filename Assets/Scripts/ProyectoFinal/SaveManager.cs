@@ -13,7 +13,7 @@ namespace RootsOfLife
         public static SaveManager Instance { get; private set; }
 
         private const int SLOT_COUNT = 6;
-        private const string SLOT_META_KEY = " rol_slot_meta_{0}";
+        private const string SLOT_META_KEY = "rol_slot_meta_{0}";
         private const string SLOT_DATA_KEY = "rol_slot_data_{0}";
 
         private void Awake()

@@ -23,7 +23,7 @@
     height: 100%;
     border-width: 0;
     border-radius: 0;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 32px;
     color: rgb(245, 240, 224);
     cursor: link;
@@ -31,46 +31,12 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     background-color: rgb(184, 128, 74);
-}
-
-.tab--mapa {
-    background-color: rgb(184, 128, 74);
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
-    -unity-font-definition: initial;
-    font-size: 32px;
-}
-
-.tab--inventario {
-    background-color: rgb(184, 128, 74);
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
-    font-size: 32px;
-}
-
-.tab--enciclopedia {
-    background-color: rgb(184, 128, 74);
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
-    font-size: 32px;
-}
-
-.tab--mejoras {
-    background-color: rgb(184, 128, 74);
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
-    font-size: 32px;
-}
-
-.tab--ajustes {
-    background-color: rgb(184, 128, 74);
-    font-size: 32px;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .tab--active {
-    filter: ;
     border-bottom-width: 0;
     border-bottom-color: rgb(240, 208, 96);
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     font-size: 32px;
     background-color: rgb(92, 51, 23);
     color: rgb(212, 169, 106);
@@ -80,8 +46,6 @@
 }
 
 .tab:hover {
-    filter: ;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     font-size: 32px;
     background-color: rgb(168, 106, 58);
 }
@@ -111,7 +75,6 @@
     color: rgb(232, 200, 138);
     font-size: 32px;
     padding: 24px;
-    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
 .side-panel {
@@ -127,14 +90,13 @@
 }
 
 .panel-title {
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 45px;
     color: rgb(245, 240, 224);
     -unity-text-align: middle-left;
     margin-bottom: 12px;
     width: 100%;
     height: 10%;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .panel-desc {
@@ -149,7 +111,7 @@
 
 .panel-back-btn {
     margin-top: auto;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
+    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 24px;
     color: rgb(245, 240, 224);
     background-color: rgb(92, 51, 23);
@@ -162,12 +124,10 @@
     transition: background-color 0.15s ease;
     width: 30%;
     height: 5%;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .panel-back-btn:hover {
     background-color: rgba(122, 74, 42, 0.9);
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     width: 30%;
     height: 5%;
     font-size: 24px;
@@ -313,7 +273,6 @@
     border-radius: 4px;
     width: 20%;
     height: 20%;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .inv-drag-ghost {
@@ -366,7 +325,6 @@
     padding: 0;
     margin-right: 12px;
     flex-shrink: 0;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .tool-icon:hover {
@@ -375,7 +333,6 @@
     border-color: rgb(245, 240, 224);
     width: 8%;
     height: 80%;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .tool-icon--selected {
@@ -384,7 +341,6 @@
     border-color: rgb(245, 240, 224);
     width: 8%;
     height: 80%;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .level-bars {
@@ -429,12 +385,10 @@
     color: rgb(92, 51, 23);
     width: 100%;
     height: 100%;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .tool-info {
     flex-direction: column;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     width: 30%;
     height: 50%;
 }
@@ -443,14 +397,12 @@
     -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 32px;
     color: rgb(245, 240, 224);
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }
 
 .tool-lvl {
     font-size: 24px;
     color: rgb(232, 200, 138);
     margin-top: 2px;
-    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
     -unity-font-style: normal;
 }
 
@@ -467,7 +419,6 @@
     font-size: 32px;
     color: rgb(245, 240, 224);
     margin-bottom: 6px;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     width: 100%;
     height: 20%;
 }
@@ -477,7 +428,6 @@
     color: rgb(232, 200, 138);
     margin-bottom: 0;
     white-space: normal;
-    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
     width: 100%;
     height: 15%;
 }
@@ -505,7 +455,6 @@
     width: 40%;
     height: 20%;
     align-self: center;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     padding-left: 5%;
     padding-right: 5%;
     padding-top: 5%;
@@ -551,7 +500,6 @@
     color: rgb(255, 255, 255);
     font-weight: 600;
     margin-bottom: 6px;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     -unity-font-style: bold;
     width: 50%;
 }
@@ -567,7 +515,6 @@
     width: 50%;
     margin-right: 12px;
     font-size: 24px;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
     height: 100%;
 }
 
@@ -600,5 +547,4 @@
     color: rgb(232, 200, 138);
     min-width: 28px;
     -unity-text-align: middle-left;
-    -unity-font: url('project://database/Assets/fonts/Inter-BoldItalic.ttf?fileID=12800000&guid=5476f215083ae8748b5b0e6cdcfbd111&type=3#Inter-BoldItalic');
 }

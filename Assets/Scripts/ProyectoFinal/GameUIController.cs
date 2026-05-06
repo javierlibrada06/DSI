@@ -47,6 +47,14 @@ namespace RootsOfLife
         // ── INVENTARIO ──────────────────────────
         private InventoryUIController _inventoryUI;
 
+        // ── AJUSTES ──────────────────────────────
+        private Slider _sliderMusic;
+        private Slider _sliderSfx;
+        private Slider _sliderTextSize;
+        private Label  _valMusic;
+        private Label  _valSfx;
+        private Label  _valTextSize;
+
         // ── MEJORAS ─────────────────────────────
         private string _selectedTool = "";
 
@@ -104,6 +112,14 @@ namespace RootsOfLife
             _islandCentral = _root.Q("island-central");
             _islandOeste = _root.Q("island-oeste");
             _islandEste = _root.Q("island-este");
+
+            // Ajustes
+            _sliderMusic    = _root.Q<Slider>("slider-music");
+            _sliderSfx      = _root.Q<Slider>("slider-sfx");
+            _sliderTextSize = _root.Q<Slider>("slider-textsize");
+            _valMusic    = _root.Q<Label>("val-music");
+            _valSfx      = _root.Q<Label>("val-sfx");
+            _valTextSize = _root.Q<Label>("val-textsize");
         }
 
         // ════════════════════════════════════════
@@ -135,6 +151,30 @@ namespace RootsOfLife
                 _root.Q<Button>($"tool-icon-{id}")
                      ?.RegisterCallback<ClickEvent>(_ => SelectTool(id));
             }
+
+            // ── AJUSTES ──
+            _sliderMusic?.RegisterValueChangedCallback(evt =>
+            {
+                if (_valMusic != null) _valMusic.text = Mathf.RoundToInt(evt.newValue).ToString();
+                AudioManager.Instance?.SetMusicVolume(evt.newValue);
+                var data = GameSession.Instance?.Data;
+                if (data != null) { data.settings.musicVolume = evt.newValue; GameSession.Instance.Save(); }
+            });
+
+            _sliderSfx?.RegisterValueChangedCallback(evt =>
+            {
+                if (_valSfx != null) _valSfx.text = Mathf.RoundToInt(evt.newValue).ToString();
+                AudioManager.Instance?.SetSfxVolume(evt.newValue);
+                var data = GameSession.Instance?.Data;
+                if (data != null) { data.settings.sfxVolume = evt.newValue; GameSession.Instance.Save(); }
+            });
+
+            _sliderTextSize?.RegisterValueChangedCallback(evt =>
+            {
+                if (_valTextSize != null) _valTextSize.text = Mathf.RoundToInt(evt.newValue).ToString();
+                var data = GameSession.Instance?.Data;
+                if (data != null) { data.settings.textSize = evt.newValue; GameSession.Instance.Save(); }
+            });
         }
 
         // ════════════════════════════════════════
@@ -171,8 +211,11 @@ namespace RootsOfLife
 
             if (tab == "mejoras")
             {
-                RefreshUpgradesUI();   // UI izquierda (lista)
-                ShowUpgradeInfo(GameSession.Instance.Data.GetToolLevel(_selectedTool)); // panel derecha
+                RefreshUpgradesUI();
+                if (!string.IsNullOrEmpty(_selectedTool))
+                    ShowUpgradeInfo(GameSession.Instance.Data.GetToolLevel(_selectedTool));
+                else
+                    SetVisible(_upgInfo, false);
             }
         }
 

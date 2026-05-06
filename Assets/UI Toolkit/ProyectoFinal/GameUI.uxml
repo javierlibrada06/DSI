@@ -22,7 +22,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-inventario" class="tab-content unity-disabled" style="display: flex;">
+            <ui:VisualElement name="content-inventario" class="tab-content" style="display: none;">
                 <ui:VisualElement name="inv-area" class="inv-area">
                     <ui:VisualElement name="inv-grid" class="inv-grid">
                         <ui:VisualElement name="inv-slot-0" class="inv-slot" />
@@ -58,10 +58,10 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-enciclopedia" class="tab-content unity-disabled" style="display: flex;">
+            <ui:VisualElement name="content-enciclopedia" class="tab-content" style="display: none;">
                 <ui:Label text=" Enciclopedia — próximamente" class="placeholder-label" />
             </ui:VisualElement>
-            <ui:VisualElement name="content-mejoras" class="tab-content unity-disabled" style="display: flex;">
+            <ui:VisualElement name="content-mejoras" class="tab-content" style="display: none;">
                 <ui:VisualElement name="upg-area" class="upg-area">
                     <ui:VisualElement name="tool-row-regadera" class="tool-row">
                         <ui:Button name="tool-icon-regadera" class="tool-icon" />
@@ -161,7 +161,7 @@
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-ajustes" class="tab-content unity-disabled" style="display: flex;">
+            <ui:VisualElement name="content-ajustes" class="tab-content" style="display: none;">
                 <ui:VisualElement name="settings-area" class="settings-area">
                     <ui:VisualElement name="setting-music" class="setting-row" style="width: auto; height: auto;">
                         <ui:Label text="Música" class="setting-label" />

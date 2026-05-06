@@ -236,10 +236,7 @@ namespace RootsOfLife
         private static void SetVisible(VisualElement el, bool visible)
         {
             if (el == null) return;
-            if (visible)
-                el.RemoveFromClassList("unity-disabled");
-            else
-                el.AddToClassList("unity-disabled");
+            el.style.display = visible ? DisplayStyle.Flex : DisplayStyle.None;
         }
 
         private void QuitGame()
