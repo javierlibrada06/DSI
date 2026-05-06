@@ -16,6 +16,7 @@
     border-bottom-color: rgb(212, 169, 106);
     flex-shrink: 0;
     width: 100%;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
 .tab {
@@ -23,7 +24,6 @@
     height: 100%;
     border-width: 0;
     border-radius: 0;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 32px;
     color: rgb(245, 240, 224);
     cursor: link;
@@ -93,14 +93,13 @@
 }
 
 .panel-title {
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 45px;
     color: rgb(245, 240, 224);
     -unity-text-align: middle-left;
     margin-bottom: 12px;
     width: 100%;
     height: 10%;
-    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
+    -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
 }
 
 .panel-desc {
@@ -111,11 +110,11 @@
     line-height: 1.6;
     width: 100%;
     height: 12%;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
 .panel-back-btn {
     margin-top: auto;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 24px;
     color: rgb(245, 240, 224);
     background-color: rgb(92, 51, 23);
@@ -128,6 +127,7 @@
     transition: background-color 0.15s ease;
     width: 30%;
     height: 5%;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
 }
 
 .panel-back-btn:hover {
@@ -191,7 +191,6 @@
 
 .island-label {
     font-size: 12px;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     color: rgb(92, 51, 23);
     -unity-text-align: middle-center;
 }
@@ -270,7 +269,6 @@
     bottom: 3px;
     right: 5px;
     font-size: 11px;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     color: rgb(92, 51, 23);
     background-color: rgba(255, 255, 255, 0.8);
     padding: 0 3px;
@@ -385,7 +383,6 @@
     bottom: 2px;
     left: 4px;
     font-size: 24px;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     color: rgb(92, 51, 23);
     width: 100%;
     height: 100%;
@@ -398,7 +395,6 @@
 }
 
 .tool-name {
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 32px;
     color: rgb(245, 240, 224);
 }
@@ -419,7 +415,6 @@
 }
 
 .upg-level {
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 32px;
     color: rgb(245, 240, 224);
     margin-bottom: 6px;
@@ -446,7 +441,6 @@
 
 .btn-upgrade {
     margin-top: 2%;
-    -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
     font-size: 24px;
     padding: 8px 14px;
     border-radius: 8px;
@@ -551,4 +545,28 @@
     color: rgb(232, 200, 138);
     min-width: 28px;
     -unity-text-align: middle-left;
+}
+
+.inv-debug-bar {
+    flex-direction: row;
+    margin-bottom: 8px;
+    align-self: center;
+    margin-top: 12px;
+}
+
+.btn-add-item {
+    background-color: rgb(61, 139, 61);
+    color: rgb(245, 240, 224);
+    border-width: 2px;
+    border-color: rgb(212, 169, 106);
+    border-radius: 16px;
+    font-size: 22px;
+    padding: 6px 20px;
+    margin-right: 12px;
+    cursor: link;
+    transition: background-color 0.15s ease;
+}
+
+.btn-add-item:hover {
+    background-color: rgb(76, 175, 80);
 }

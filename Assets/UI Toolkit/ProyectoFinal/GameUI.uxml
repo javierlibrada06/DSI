@@ -24,6 +24,10 @@
             </ui:VisualElement>
             <ui:VisualElement name="content-inventario" class="tab-content" style="display: none;">
                 <ui:VisualElement name="inv-area" class="inv-area">
+                    <ui:VisualElement name="inv-debug-bar" class="inv-debug-bar">
+                        <ui:Button name="btn-add-seed" text="+ Seed" class="btn-add-item" />
+                        <ui:Button name="btn-add-crop" text="+ Crop" class="btn-add-item" />
+                    </ui:VisualElement>
                     <ui:VisualElement name="inv-grid" class="inv-grid">
                         <ui:VisualElement name="inv-slot-0" class="inv-slot" />
                         <ui:VisualElement name="inv-slot-1" class="inv-slot" />

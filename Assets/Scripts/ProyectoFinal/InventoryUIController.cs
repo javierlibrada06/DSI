@@ -13,7 +13,7 @@ namespace RootsOfLife
         private int _dragSourceIndex = -1;
 
         private readonly List<InventorySlotManipulator> _manips = new();
-        private List<VisualElement> _slots = new();  // caché para hit-test
+        private List<VisualElement> _slots = new(); 
 
         private ItemDatabase _db;
 
@@ -24,10 +24,8 @@ namespace RootsOfLife
             _db      = db;
 
             CreateDragGhost();
-            _root.RegisterCallback<PointerMoveEvent>(OnPointerMove);
         }
 
-        // ── Refresh ────────────────────────────────────────────────────────────
 
         public void Refresh()
         {
@@ -70,14 +68,11 @@ namespace RootsOfLife
                     slot.AddToClassList("inv-slot--empty");
                 }
 
-                // Pasamos _slots como referencia para el hit-test en el drop
-                var manip = new InventorySlotManipulator(idx, StartDrag, DropOnSlot, _slots);
+                var manip = new InventorySlotManipulator(idx, StartDrag, DropOnSlot, _slots, MoveGhost);
                 slot.AddManipulator(manip);
                 _manips.Add(manip);
             }
         }
-
-        // ── Drag ───────────────────────────────────────────────────────────────
 
         private void StartDrag(int index, Vector2 pos)
         {
@@ -85,14 +80,27 @@ namespace RootsOfLife
             if (index < 0 || index >= inv.Count || inv[index] == null) return;
 
             _dragSourceIndex = index;
+
+            // ponemos el icono del item en el ghost
+            _dragGhost.Clear();
+            var def = _db.Get(inv[index].itemId);
+            if (def != null && def.icon != null)
+            {
+                var icon = new VisualElement();
+                icon.style.backgroundImage = new StyleBackground(def.icon);
+                icon.style.width  = Length.Percent(100);
+                icon.style.height = Length.Percent(100);
+                icon.pickingMode  = PickingMode.Ignore;
+                _dragGhost.Add(icon);
+            }
+
             SetVisible(_dragGhost, true);
             MoveGhost(pos);
         }
-
-        // Firma actualizada: recibe (sourceIndex, targetIndex)
         private void DropOnSlot(int sourceIndex, int targetIndex)
         {
             SetVisible(_dragGhost, false);
+            _dragGhost.Clear();
 
             var inv = GameSession.Instance.Data.inventory;
 
@@ -113,7 +121,6 @@ namespace RootsOfLife
 
             if (target != null && target.itemId == source.itemId && def != null)
             {
-                // Merge: rellenar stack destino
                 int space = def.maxStack - target.count;
                 int move  = Mathf.Min(space, source.count);
                 target.count += move;
@@ -123,7 +130,7 @@ namespace RootsOfLife
             }
             else
             {
-                // Swap
+                // intercambio
                 inv[sourceIndex] = target;
                 inv[targetIndex] = source;
             }
@@ -133,13 +140,6 @@ namespace RootsOfLife
             Refresh();
         }
 
-        // ── Ghost ──────────────────────────────────────────────────────────────
-
-        private void OnPointerMove(PointerMoveEvent evt)
-        {
-            if (_dragSourceIndex >= 0)
-                MoveGhost(evt.position);
-        }
 
         private void MoveGhost(Vector2 pos)
         {
@@ -152,11 +152,10 @@ namespace RootsOfLife
             _dragGhost = new VisualElement();
             _dragGhost.AddToClassList("inv-drag-ghost");
             _dragGhost.style.display = DisplayStyle.None;
-            _dragGhost.pickingMode   = PickingMode.Ignore;  // no bloquea hit-test
+            _dragGhost.pickingMode   = PickingMode.Ignore; 
             _root.Add(_dragGhost);
         }
 
-        // ── Helpers ────────────────────────────────────────────────────────────
 
         private void ClearManipulators()
         {

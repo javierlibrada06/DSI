@@ -3,19 +3,15 @@ using UnityEngine.UIElements;
 
 namespace RootsOfLife
 {
-    /// <summary>
-    /// Manipulator para cada slot del inventario.
-    /// Detecta drag-start y, al soltar, busca el slot real bajo el cursor
-    /// usando WorldBoundingBox — no depende del índice del origen.
-    /// </summary>
     public class InventorySlotManipulator : PointerManipulator
     {
         private readonly int _index;
         private readonly System.Action<int, Vector2> _onDragStart;
-        private readonly System.Action<int, int> _onDrop;   // (source, target)
+        private readonly System.Action<int, int>     _onDrop;
+        private readonly System.Action<Vector2>      _onDragMove; 
         private readonly System.Collections.Generic.List<VisualElement> _allSlots;
 
-        private bool   _dragging;
+        private bool    _dragging;
         private Vector2 _startPos;
 
         private const float DRAG_THRESHOLD = 8f;
@@ -23,13 +19,15 @@ namespace RootsOfLife
         public InventorySlotManipulator(
             int index,
             System.Action<int, Vector2> onDragStart,
-            System.Action<int, int> onDrop,
-            System.Collections.Generic.List<VisualElement> allSlots)
+            System.Action<int, int>     onDrop,
+            System.Collections.Generic.List<VisualElement> allSlots,
+            System.Action<Vector2>      onDragMove)
         {
             _index       = index;
             _onDragStart = onDragStart;
             _onDrop      = onDrop;
             _allSlots    = allSlots;
+            _onDragMove  = onDragMove;
         }
 
         protected override void RegisterCallbacksOnTarget()
@@ -64,6 +62,10 @@ namespace RootsOfLife
                 _dragging = true;
                 _onDragStart?.Invoke(_index, evt.position);
             }
+
+            if (_dragging)
+                _onDragMove?.Invoke(evt.position); 
+
             evt.StopPropagation();
         }
 

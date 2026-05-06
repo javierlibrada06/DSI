@@ -33,7 +33,7 @@ namespace RootsOfLife
             musicSource.loop = true;
         }
 
-        // ─── Música ───────────────────────────────────────────────────────────
+        // musica
 
         public void PlayMenuMusic()  => PlayMusic(menuMusic);
         public void PlayGameMusic()  => PlayMusic(gameMusic);
@@ -47,14 +47,13 @@ namespace RootsOfLife
 
         public void StopMusic() => musicSource.Stop();
 
-        // ─── SFX ─────────────────────────────────────────────────────────────
+        // sfx
 
         public void PlayClick()   => sfxSource.PlayOneShot(clickSfx);
         public void PlayUpgrade() => sfxSource.PlayOneShot(upgradeSfx);
 
-        // ─── Volúmenes ────────────────────────────────────────────────────────
+        // volumenn
 
-        /// <summary>Aplica volúmenes desde SettingsData (0-100 → 0-1).</summary>
         public void ApplySettings(SettingsData settings)
         {
             if (settings == null) return;

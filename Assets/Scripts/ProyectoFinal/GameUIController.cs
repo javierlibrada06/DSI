@@ -10,10 +10,8 @@ namespace RootsOfLife
         [Header("Referencias")]
         [SerializeField] private ItemDatabase itemDatabase;
 
-        // ── ROOT ───────────────────────────────
         private VisualElement _root;
 
-        // ── TABS ────────────────────────────────
         private readonly string[] _tabNames =
         {
             "mapa", "inventario", "enciclopedia", "mejoras", "ajustes"
@@ -23,13 +21,13 @@ namespace RootsOfLife
         private Dictionary<string, VisualElement> _contents = new();
         private string _activeTab = "mapa";
 
-        // ── PANEL LATERAL ───────────────────────
+        // panel lateral
         private Label _panelTitle;
         private Label _panelDesc;
         private VisualElement _upgInfo;
         private Button _panelBack;
 
-        // Upgrade UI
+        // mejoraas UI
         private Label _upgLevel;
         private Label _upgNext;
         private Label _upgCapCurr;
@@ -37,17 +35,19 @@ namespace RootsOfLife
         private Button _btnUpgrade;
         private Label _upgMaxLabel;
 
-        // ── MAPA ────────────────────────────────
+        // mapa
         private VisualElement _mapArea;
         private VisualElement _islandCentral;
         private VisualElement _islandOeste;
         private VisualElement _islandEste;
         private string _selectedIsland = "";
 
-        // ── INVENTARIO ──────────────────────────
+        // inventario
         private InventoryUIController _inventoryUI;
+        private Button _btnAddSeed;
+        private Button _btnAddCrop;
 
-        // ── AJUSTES ──────────────────────────────
+        // ajustes
         private Slider _sliderMusic;
         private Slider _sliderSfx;
         private Slider _sliderTextSize;
@@ -55,7 +55,6 @@ namespace RootsOfLife
         private Label  _valSfx;
         private Label  _valTextSize;
 
-        // ── MEJORAS ─────────────────────────────
         private string _selectedTool = "";
 
         private static readonly List<ToolDef> Tools = new()
@@ -73,7 +72,6 @@ namespace RootsOfLife
             ["este"] = new("Isla Este", "Rica en minerales."),
         };
 
-        // ════════════════════════════════════════
         private void OnEnable()
         {
             _root = GetComponent<UIDocument>().rootVisualElement;
@@ -87,7 +85,6 @@ namespace RootsOfLife
             SwitchTab("mapa");
         }
 
-        // ════════════════════════════════════════
         private void BindElements()
         {
             foreach (var name in _tabNames)
@@ -120,9 +117,12 @@ namespace RootsOfLife
             _valMusic    = _root.Q<Label>("val-music");
             _valSfx      = _root.Q<Label>("val-sfx");
             _valTextSize = _root.Q<Label>("val-textsize");
+
+            // Inventario — botones de prueba
+            _btnAddSeed = _root.Q<Button>("btn-add-seed");
+            _btnAddCrop = _root.Q<Button>("btn-add-crop");
         }
 
-        // ════════════════════════════════════════
         private void RegisterCallbacks()
         {
             // Tabs
@@ -143,7 +143,7 @@ namespace RootsOfLife
             // Upgrade button
             _btnUpgrade?.RegisterCallback<ClickEvent>(_ => OnUpgradeTool());
 
-            // ── HERRAMIENTAS ──
+            // herramientas
             foreach (var tool in Tools)
             {
                 string id = tool.Id;
@@ -152,7 +152,7 @@ namespace RootsOfLife
                      ?.RegisterCallback<ClickEvent>(_ => SelectTool(id));
             }
 
-            // ── AJUSTES ──
+            // ajustes
             _sliderMusic?.RegisterValueChangedCallback(evt =>
             {
                 if (_valMusic != null) _valMusic.text = Mathf.RoundToInt(evt.newValue).ToString();
@@ -175,9 +175,52 @@ namespace RootsOfLife
                 var data = GameSession.Instance?.Data;
                 if (data != null) { data.settings.textSize = evt.newValue; GameSession.Instance.Save(); }
             });
+
+            // add items
+            _btnAddSeed?.RegisterCallback<ClickEvent>(_ => TryAddItem("seed"));
+            _btnAddCrop?.RegisterCallback<ClickEvent>(_ => TryAddItem("crop"));
         }
 
-        // ════════════════════════════════════════
+        private void TryAddItem(string itemId)
+        {
+            var data = GameSession.Instance?.Data;
+            if (data == null || itemDatabase == null) return;
+
+            var def = itemDatabase.Get(itemId);
+            if (def == null)
+            {
+                Debug.LogWarning($"[GameUIController] Item '{itemId}' no encontrado en la base de datos.");
+                return;
+            }
+
+            var inv = data.inventory;
+            data.EnsureInventorySize();
+
+            for (int i = 0; i < inv.Count; i++)
+            {
+                if (inv[i] != null && inv[i].itemId == itemId && inv[i].count < def.maxStack)
+                {
+                    inv[i].count++;
+                    GameSession.Instance.Save();
+                    _inventoryUI.Refresh();
+                    return;
+                }
+            }
+
+            for (int i = 0; i < inv.Count; i++)
+            {
+                if (inv[i] == null)
+                {
+                    inv[i] = new InventoryItemData { itemId = itemId, count = 1 };
+                    GameSession.Instance.Save();
+                    _inventoryUI.Refresh();
+                    return;
+                }
+            }
+
+            Debug.Log($"Inventario lleno, no se pudo añadir '{itemId}'.");
+        }
+
         private void SwitchTab(string tab)
         {
             _activeTab = tab;
@@ -218,11 +261,6 @@ namespace RootsOfLife
                     SetVisible(_upgInfo, false);
             }
         }
-
-        // ════════════════════════════════════════
-        // MEJORAS
-        // ════════════════════════════════════════
-
         private void SelectTool(string id)
         {
             _selectedTool = id;
@@ -302,10 +340,6 @@ namespace RootsOfLife
             }
         }
 
-        // ════════════════════════════════════════
-        // MAPA
-        // ════════════════════════════════════════
-
         private void SelectIsland(string id)
         {
             _selectedIsland = id;
@@ -321,11 +355,6 @@ namespace RootsOfLife
             _selectedIsland = "";
             SwitchTab(_activeTab);
         }
-
-        // ════════════════════════════════════════
-        // HELPERS
-        // ════════════════════════════════════════
-
         private void SetPanelText(string title, string desc)
         {
             _panelTitle.text = title;

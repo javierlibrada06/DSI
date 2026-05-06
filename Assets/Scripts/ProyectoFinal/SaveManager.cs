@@ -4,10 +4,6 @@ using UnityEngine;
 
 namespace RootsOfLife
 {
-    /// <summary>
-    /// Gestiona guardado y carga de partidas (6 slots) usando PlayerPrefs + JSON.
-    /// Singleton accesible desde cualquier sistema.
-    /// </summary>
     public class SaveManager : MonoBehaviour
     {
         public static SaveManager Instance { get; private set; }
@@ -23,7 +19,6 @@ namespace RootsOfLife
             DontDestroyOnLoad(gameObject);
         }
 
-        // ─── Metadatos de slot ────────────────────────────────────────────────
 
         public SaveSlotInfo GetSlotInfo(int slot)
         {
@@ -53,8 +48,6 @@ namespace RootsOfLife
         }
 
 
-        // ─── Datos de juego ───────────────────────────────────────────────────
-
         public GameSaveData LoadGame(int slot)
         {
             ValidateSlot(slot);
@@ -67,7 +60,7 @@ namespace RootsOfLife
             else
                 data = JsonUtility.FromJson<GameSaveData>(json) ?? new GameSaveData();
 
-            data.EnsureInventorySize(); // 🔥 CLAVE
+            data.EnsureInventorySize();
 
             return data;
         }
@@ -78,7 +71,6 @@ namespace RootsOfLife
             string json = JsonUtility.ToJson(data);
             PlayerPrefs.SetString(string.Format(SLOT_DATA_KEY, slot), json);
 
-            // Actualizar metadatos
             var info = GetSlotInfo(slot);
             info.isEmpty = false;
             info.lastPlayed = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -94,8 +86,6 @@ namespace RootsOfLife
             if (!string.IsNullOrEmpty(name))
                 SetSlotName(slot, name);
         }
-
-        // ─── Helpers privados ─────────────────────────────────────────────────
 
         private void SaveSlotMeta(int slot, SaveSlotInfo info)
         {

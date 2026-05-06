@@ -78,7 +78,7 @@ namespace RootsOfLife
             var itemDef = db.Get(id);
             if (itemDef == null) return false;
 
-            // 1. Rellenar stacks existentes
+            // rellena los stack q haya
             for (int i = 0; i < inventory.Count; i++)
             {
                 var slot = inventory[i];
@@ -94,7 +94,7 @@ namespace RootsOfLife
                 }
             }
 
-            // 2. Crear nuevos stacks
+            // crea uevo ctack
             for (int i = 0; i < inventory.Count; i++)
             {
                 if (inventory[i] == null)
@@ -115,6 +115,12 @@ namespace RootsOfLife
         {
             if (inventory == null)
                 inventory = new List<InventoryItemData>();
+
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                if (inventory[i] != null && string.IsNullOrEmpty(inventory[i].itemId))
+                    inventory[i] = null;
+            }
 
             while (inventory.Count < InventorySize)
                 inventory.Add(null);

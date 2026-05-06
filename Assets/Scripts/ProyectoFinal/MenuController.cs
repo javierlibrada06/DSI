@@ -4,30 +4,27 @@ using UnityEngine.SceneManagement;
 
 namespace RootsOfLife
 {
-    /// <summary>
-    /// Controlador para la escena de menú (Menu.uxml).
-    /// Gestiona: Menú Principal → Selección de Partida → Modal de Slot.
-    /// </summary>
+
     [RequireComponent(typeof(UIDocument))]
     public class MenuController : MonoBehaviour
     {
         [Header("Escena de juego")]
         [SerializeField] private string gameSceneName = "GameScene";
 
-        // ── Pantallas ──────────────────────────────────────────────────────────
+        // pantallas del menu
         private VisualElement _screenMenu;
         private VisualElement _screenSaves;
         private VisualElement _modalOverlay;
 
-        // ── Menú Principal ────────────────────────────────────────────────────
+        // menu main
         private Button _btnJugar;
         private Button _btnSalir;
 
-        // ── Pantalla de Slots ─────────────────────────────────────────────────
+        // partidas
         private Button _btnBackMenu;
         private VisualElement[] _slotCards = new VisualElement[6];
 
-        // ── Modal ─────────────────────────────────────────────────────────────
+        //pop up
         private Button    _modalClose;
         private Label     _modalIcon;
         private Label     _modalTitle;
@@ -42,7 +39,6 @@ namespace RootsOfLife
 
         private int _selectedSlot = -1;
 
-        // ── Unity ─────────────────────────────────────────────────────────────
         private void OnEnable()
         {
             var root = GetComponent<UIDocument>().rootVisualElement;
@@ -50,8 +46,6 @@ namespace RootsOfLife
             RegisterCallbacks();
             ShowScreen("menu");
         }
-
-        // ─── Binding ──────────────────────────────────────────────────────────
 
         private void BindElements(VisualElement root)
         {
@@ -99,8 +93,6 @@ namespace RootsOfLife
             _modalBtnCancel?.RegisterCallback<ClickEvent>(_ => OnModalRenameCancel());
         }
 
-        // ─── Navegación de pantallas ──────────────────────────────────────────
-
         private void ShowScreen(string screen)
         {
             SetVisible(_screenMenu,   screen == "menu");
@@ -110,8 +102,6 @@ namespace RootsOfLife
             if (screen == "saves")
                 RefreshSlots();
         }
-
-        // ─── Slots ────────────────────────────────────────────────────────────
 
         private void RefreshSlots()
         {
@@ -149,20 +139,16 @@ namespace RootsOfLife
             OpenModal(info);
         }
 
-        // ─── Modal ────────────────────────────────────────────────────────────
-
         private void OpenModal(SaveSlotInfo info)
         {
             _modalIcon.text  = info.isEmpty ? "➕" : "🌿";
             _modalTitle.text = info.isEmpty ? "Nueva partida" : info.slotName;
 
-            // Mostrar acciones correctas según estado
             bool hasData = !info.isEmpty;
             SetVisible(_modalBtnPlay,   hasData);
             SetVisible(_modalBtnRename, hasData);
             SetVisible(_modalBtnDelete, hasData);
 
-            // Si está vacío mostrar sólo "Jugar" (creará partida nueva)
             if (!hasData)
             {
                 SetVisible(_modalBtnPlay, true);
@@ -230,8 +216,6 @@ namespace RootsOfLife
             CloseModal();
             RefreshSlots();
         }
-
-        // ─── Utilidades ───────────────────────────────────────────────────────
 
         private static void SetVisible(VisualElement el, bool visible)
         {
