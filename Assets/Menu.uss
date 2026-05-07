@@ -210,12 +210,12 @@
 
 .slot-name {
     -unity-font-definition: url('project://database/Assets/Fonts/Nunito-BoldItalic.asset');
-    font-size: 24px;
+    font-size: 32px;
     color: rgb(245, 240, 224);
     -unity-text-align: middle-center;
     white-space: normal;
     -unity-font: url('project://database/Assets/fonts/Masterpiece.ttf?fileID=12800000&guid=fccdc64a1a3b70c48b476d0b5e09045c&type=3#Masterpiece');
-    width: 28%;
+    width: 70%;
     height: 20%;
 }
 
@@ -328,7 +328,7 @@
 
 .btn-sm {
     -unity-font-definition: url('project://database/Assets/Fonts/Nunito-Bold.asset');
-    font-size: 70%;
+    font-size: 24px;
     padding: 8px 16px;
     border-radius: 8px;
     border-width: 2px;
@@ -357,7 +357,7 @@
 .btn-sm:hover {
     background-color: rgba(196, 147, 90, 0);
     width: 30%;
-    height: 20%;
+    height: 100%;
     font-size: 75%;
     -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
     -unity-text-align: middle-right;
@@ -368,7 +368,7 @@
 .btn-sm--play {
     background-color: rgba(61, 139, 61, 0);
     border-color: rgb(76, 175, 80);
-    font-size: 70%;
+    font-size: initial;
     padding: 10px 24px;
     width: 30%;
     height: 100%;
@@ -386,18 +386,18 @@
 .btn-sm--play:hover {
     background-color: rgba(76, 175, 80, 0);
     width: 30%;
-    height: 20%;
-    font-size: 75%;
-    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    height: 100%;
+    font-size: 32px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
     -unity-text-align: middle-right;
     -unity-font-style: bold;
     color: rgb(188, 248, 191);
 }
 
-.btn-sm--danger {
+.btn-sm--delete {
     background-color: rgba(61, 139, 61, 0);
     border-color: rgb(76, 175, 80);
-    font-size: 70%;
+    font-size: initial;
     padding: 10px 24px;
     width: 30%;
     height: 100%;
@@ -409,16 +409,16 @@
     border-top-color: rgba(76, 175, 80, 0);
     border-bottom-color: rgba(76, 175, 80, 0);
     -unity-text-align: middle-right;
-    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
 }
 
-.btn-sm--danger:hover {
+.btn-sm--delete:hover {
     background-color: rgba(76, 175, 80, 0);
     width: 30%;
-    height: 20%;
-    font-size: 75%;
-    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=e2ba20d7d14437747a1baa56fdb039d3&type=3#NotInter-Regular');
+    height: 100%;
+    font-size: 32px;
+    -unity-font: url('project://database/Assets/fonts/Nunito-Bold.ttf?fileID=12800000&guid=aaf51f1373e92b7419339058f80a581b&type=3#Nunito-Bold');
     -unity-text-align: middle-right;
     -unity-font-style: bold;
-    color: rgb(188, 248, 191);
+    color: rgb(248, 197, 188);
 }

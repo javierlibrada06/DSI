@@ -15,4 +15,4 @@ MonoBehaviour:
   id: crop
   displayName: Crop
   icon: {fileID: 698928258, guid: 02bf7d39b6263d64998f1507753f4453, type: 3}
-  maxStack: 99
+  maxStack: 10

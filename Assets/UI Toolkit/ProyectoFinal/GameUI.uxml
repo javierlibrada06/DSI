@@ -11,15 +11,9 @@
         <ui:VisualElement name="game-content" class="game-content">
             <ui:VisualElement name="content-mapa" class="tab-content tab-content--active" style="display: flex;">
                 <ui:VisualElement name="map-area" class="map-area">
-                    <ui:VisualElement name="island-central" class="island island--central" style="height: 553px; width: 636px; top: 168px; left: 332px;">
-                        <ui:Label text="Central" class="island-label" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="island-oeste" class="island island--oeste" style="height: 237px; width: 250px;">
-                        <ui:Label text="Oeste" class="island-label" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="island-este" class="island island--este" style="height: 279px; width: 208px; top: 90px; left: 1056px;">
-                        <ui:Label text="Este" class="island-label" />
-                    </ui:VisualElement>
+                    <ui:VisualElement name="island-central" class="island island--central" style="height: 541px; width: 604px; top: 176px; left: 298px; background-color: rgba(255, 255, 255, 0); background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Isla%20Central%201.png?fileID=2800000&amp;guid=6cca71d09cfe0584b999fc1807314fcc&amp;type=3#Isla Central 1&apos;); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0);" />
+                    <ui:VisualElement name="island-oeste" class="island island--oeste" style="height: 336px; width: 278px; background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Isla%20Izquierda%201.png?fileID=2800000&amp;guid=9115469393576334bbacbf2ec898a6f8&amp;type=3#Isla Izquierda 1&apos;); background-color: rgba(212, 169, 106, 0); -unity-background-scale-mode: scale-to-fit; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); left: 201px; top: 203px;" />
+                    <ui:VisualElement name="island-este" class="island island--este" style="height: 288px; width: 267px; top: 241px; left: 819px; background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Isla%20Derecha%201.png?fileID=2800000&amp;guid=1c1052989d0f5f945abc25d0372486c2&amp;type=3#Isla Derecha 1&apos;); background-color: rgba(212, 169, 106, 0); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-inventario" class="tab-content" style="display: none;">

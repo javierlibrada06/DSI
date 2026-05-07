@@ -156,18 +156,24 @@
     justify-content: center;
     cursor: link;
     transition: scale 0.2s ease;
+    font-size: 32px;
 }
 
 .island:hover {
     scale: 1.05 1.05;
     border-color: rgb(255, 255, 255);
+    font-size: 32px;
 }
 
 .island--selected {
-    transform-scale: 2 2; 
     layers: 10;
     transition-duration: 0.5s;
     transition-timing-function: ease-out-back;
+    font-size: 32px;
+}
+
+.island--faded {
+    opacity: 0;
 }
 
 .island--central {
@@ -175,6 +181,7 @@
     height: 160px;
     top: 80px;
     left: 180px;
+    font-size: 32px;
 }
 
 .island--oeste {
@@ -192,7 +199,7 @@
 }
 
 .island-label {
-    font-size: 12px;
+    font-size: 45px;
     color: rgb(92, 51, 23);
     -unity-text-align: middle-center;
 }

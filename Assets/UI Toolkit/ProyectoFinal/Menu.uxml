@@ -46,20 +46,20 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="modal-overlay" class="modal-overlay unity-disabled" style="top: 4px; left: -6px; display: none;">
+        <ui:VisualElement name="modal-overlay" class="modal-overlay unity-disabled" style="top: 4px; left: -6px; display: flex;">
             <ui:VisualElement name="modal-box" class="modal-box">
                 <ui:Button name="modal-close" text="X" class="modal-close" />
                 <ui:Label name="modal-icon" text="🌿" class="modal-icon" />
                 <ui:Label name="modal-title" text="Partida 1" class="modal-title" style="font-size: 45px; -unity-font-style: bold;" />
                 <ui:TextField name="modal-rename-field" placeholder-string="Nuevo nombre..." class="modal-rename-field unity-disabled" style="font-size: 20px;" />
                 <ui:VisualElement name="modal-actions" class="modal-actions">
-                    <ui:Button name="modal-btn-play" text="Jugar" class="btn-sm btn-sm--play" style="font-size: 24px;" />
-                    <ui:Button name="modal-btn-rename" text="Renombrar" class="btn-sm" style="flex-direction: row; -unity-text-align: middle-right; font-size: 24px;" />
-                    <ui:Button name="modal-btn-delete" text="Borrar" class="btn-sm btn-sm--danger" style="font-size: 24px;" />
+                    <ui:Button name="modal-btn-play" text="Jugar" class="btn-sm btn-sm--play" style="font-size: 32px;" />
+                    <ui:Button name="modal-btn-rename" text="Rename" class="btn-sm btn-sm--play" style="font-size: 32px;" />
+                    <ui:Button name="modal-btn-delete" text="Delete" class="btn-sm btn-sm--delete" style="font-size: 32px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="modal-actions-rename" class="modal-actions unity-disabled">
-                    <ui:Button name="modal-btn-confirm" text="Guardar" class="btn-sm btn-sm--play" style="font-size: 24px;" />
-                    <ui:Button name="modal-btn-cancel" text="Cancelar" class="btn-sm" style="font-size: 24px;" />
+                    <ui:Button name="modal-btn-confirm" text="Guardar" class="btn-sm btn-sm--play" style="font-size: 32px;" />
+                    <ui:Button name="modal-btn-cancel" text="Cancel" class="btn-sm btn-sm--delete" style="font-size: 32px;" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
