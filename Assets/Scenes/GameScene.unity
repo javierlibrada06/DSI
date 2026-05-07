@@ -278,6 +278,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDatabase: {fileID: 11400000, guid: 483838fcf4b2d2e4991ec37edf112583, type: 2}
+  toolIcons:
+  - toolId: regadera
+    icon: {fileID: -1092308292, guid: 51c678f8460b53043abff0dff3ef5628, type: 3}
+  - toolId: hacha
+    icon: {fileID: -669500716, guid: 51c678f8460b53043abff0dff3ef5628, type: 3}
+  - toolId: pico
+    icon: {fileID: 1586150974, guid: 51c678f8460b53043abff0dff3ef5628, type: 3}
+  - toolId: azada
+    icon: {fileID: 780022658, guid: 51c678f8460b53043abff0dff3ef5628, type: 3}
 --- !u!114 &1887163319
 MonoBehaviour:
   m_ObjectHideFlags: 0

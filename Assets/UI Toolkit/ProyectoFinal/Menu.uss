@@ -1,7 +1,6 @@
 .menu-container {
     flex-grow: 1;
     background-color: #1e3a1e;
-    /* Simulación de gradiente (UI Toolkit 2022 usa tintas o imágenes para gradientes complejos) */
     border-right-width: 300px;
     border-right-color: #4caf50;
     padding: 32px;

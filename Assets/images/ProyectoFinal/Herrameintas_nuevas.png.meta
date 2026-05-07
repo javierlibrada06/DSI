@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d37b6afe04dcba244ac31bb0be553f58
+guid: 51c678f8460b53043abff0dff3ef5628
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,13 +43,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 177, z: 0, w: 192}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -108,18 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Herrameintas_nuevas_1
+      rect:
+        serializedVersion: 2
+        x: 1588
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d483b7903a0f444b85107cc1d023a6e
+      internalID: -669500716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Herrameintas_nuevas_2
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4987a5daaefd6dc42893b571a36e6b88
+      internalID: 1586150974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Herrameintas_nuevas_5
+      rect:
+        serializedVersion: 2
+        x: 2654
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847aefb3a22a4a44fab2b7133b7589cd
+      internalID: 780022658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Herrameintas_nuevas_6
+      rect:
+        serializedVersion: 2
+        x: 3147
+        y: 0
+        width: 476
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8f3fea15c438140af88061058753bd
+      internalID: -1092308292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Herrameintas_nuevas_0: 538760065
+      Herrameintas_nuevas_1: -669500716
+      Herrameintas_nuevas_2: 1586150974
+      Herrameintas_nuevas_3: -1149127634
+      Herrameintas_nuevas_4: 767646326
+      Herrameintas_nuevas_5: 780022658
+      Herrameintas_nuevas_6: -1092308292
+      Herrameintas_nuevas_7: 489672493
+      Herrameintas_nuevas_8: -1788208218
+      Herrameintas_nuevas_9: -1691806119
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

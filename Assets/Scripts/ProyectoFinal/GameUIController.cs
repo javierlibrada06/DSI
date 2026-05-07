@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +9,15 @@ namespace RootsOfLife
     {
         [Header("Referencias")]
         [SerializeField] private ItemDatabase itemDatabase;
+
+        [Header("Iconos de herramientas")]
+        [SerializeField] private ToolIconEntry[] toolIcons = new ToolIconEntry[]
+        {
+            new() { toolId = "regadera" },
+            new() { toolId = "hacha"    },
+            new() { toolId = "pico"     },
+            new() { toolId = "azada"    },
+        };
 
         private VisualElement _root;
 
@@ -28,7 +36,7 @@ namespace RootsOfLife
         private VisualElement _upgInfo;
         private Button _panelBack;
 
-        // mejoraas UI
+        // mejoras UI
         private Label _upgLevel;
         private Label _upgNext;
         private Label _upgCapCurr;
@@ -44,13 +52,6 @@ namespace RootsOfLife
         private string _selectedIsland = "";
 
         // inventario
-        private bool _isDragging = false;
-        private Vector3 _pointerStartPosition;
-        private Vector3 _elementStartPosition;
-
-        private List<VisualElement> _allIslands = new();
-
-        // ── INVENTARIO ──────────────────────────
         private InventoryUIController _inventoryUI;
         private Button _btnAddSeed;
         private Button _btnAddCrop;
@@ -93,6 +94,7 @@ namespace RootsOfLife
             SwitchTab("mapa");
         }
 
+        // ════════════════════════════════════════
         private void BindElements()
         {
             foreach (var name in _tabNames)
@@ -117,7 +119,6 @@ namespace RootsOfLife
             _islandCentral = _root.Q("island-central");
             _islandOeste = _root.Q("island-oeste");
             _islandEste = _root.Q("island-este");
-            _allIslands = new List<VisualElement> { _islandCentral, _islandOeste, _islandEste };
 
             // Ajustes
             _sliderMusic    = _root.Q<Slider>("slider-music");
@@ -127,14 +128,12 @@ namespace RootsOfLife
             _valSfx      = _root.Q<Label>("val-sfx");
             _valTextSize = _root.Q<Label>("val-textsize");
 
-            // Inventario — botones de prueba
             _btnAddSeed = _root.Q<Button>("btn-add-seed");
             _btnAddCrop = _root.Q<Button>("btn-add-crop");
         }
 
         private void RegisterCallbacks()
         {
-            // Tabs
             foreach (var name in _tabNames)
             {
                 string n = name;
@@ -146,20 +145,8 @@ namespace RootsOfLife
             _islandOeste?.RegisterCallback<ClickEvent>(_ => SelectIsland("oeste"));
             _islandEste?.RegisterCallback<ClickEvent>(_ => SelectIsland("este"));
 
-            foreach (var island in _allIslands)
-            {
-                if (island == null) continue;
-
-                island.RegisterCallback<PointerDownEvent>(OnPointerDown);
-                island.RegisterCallback<PointerMoveEvent>(OnPointerMove);
-                island.RegisterCallback<PointerUpEvent>(OnPointerUp);
-                island.RegisterCallback<PointerLeaveEvent>(OnPointerUp);
-            }
-
-            // Panel
             _panelBack?.RegisterCallback<ClickEvent>(_ => DeselectAll());
 
-            // Upgrade button
             _btnUpgrade?.RegisterCallback<ClickEvent>(_ => OnUpgradeTool());
 
             // herramientas
@@ -195,11 +182,9 @@ namespace RootsOfLife
                 if (data != null) { data.settings.textSize = evt.newValue; GameSession.Instance.Save(); }
             });
 
-            // add items
             _btnAddSeed?.RegisterCallback<ClickEvent>(_ => TryAddItem("seed"));
             _btnAddCrop?.RegisterCallback<ClickEvent>(_ => TryAddItem("crop"));
         }
-
         private void TryAddItem(string itemId)
         {
             var data = GameSession.Instance?.Data;
@@ -208,13 +193,14 @@ namespace RootsOfLife
             var def = itemDatabase.Get(itemId);
             if (def == null)
             {
-                Debug.LogWarning($"[GameUIController] Item '{itemId}' no encontrado en la base de datos.");
+                Debug.LogWarning($"Item '{itemId}' no encontrado en la base de datos.");
                 return;
             }
 
             var inv = data.inventory;
             data.EnsureInventorySize();
 
+            // Buscar slot del mismo tipo con espacio
             for (int i = 0; i < inv.Count; i++)
             {
                 if (inv[i] != null && inv[i].itemId == itemId && inv[i].count < def.maxStack)
@@ -226,6 +212,7 @@ namespace RootsOfLife
                 }
             }
 
+            // Buscar primer slot vacio
             for (int i = 0; i < inv.Count; i++)
             {
                 if (inv[i] == null)
@@ -236,72 +223,8 @@ namespace RootsOfLife
                     return;
                 }
             }
-
             Debug.Log($"Inventario lleno, no se pudo añadir '{itemId}'.");
         }
-
-        private void OnPointerDown(PointerDownEvent evt)
-        {
-            VisualElement target = evt.currentTarget as VisualElement;
-
-            if (target == null || !target.ClassListContains("island--selected")) return;
-
-            _isDragging = true;
-            _pointerStartPosition = evt.position;
-            _elementStartPosition = target.transform.position;
-
-            target.CapturePointer(evt.pointerId);
-            evt.StopPropagation();
-        }
-
-        private void OnPointerMove(PointerMoveEvent evt)
-        {
-            if (!_isDragging) return;
-
-            VisualElement target = evt.currentTarget as VisualElement;
-            if (target == null) return;
-
-            Vector3 delta = (Vector3)(evt.position - _pointerStartPosition);
-
-            target.style.left = _elementStartPosition.x + delta.x;
-            target.style.top = _elementStartPosition.y + delta.y;
-        }
-
-        private void ResetMapVisuals()
-        {
-            foreach (var island in _allIslands)
-            {
-                if (island == null) continue;
-
-                island.style.left = StyleKeyword.Null;
-                island.style.top = StyleKeyword.Null;
-                island.style.scale = StyleKeyword.Null;
-                island.style.display = DisplayStyle.Flex;
-                if (island.ClassListContains("island--selected")) island.style.scale = new StyleScale(new Scale(new Vector2(1f, 1f)));
-
-                
-                island.RemoveFromClassList("island--selected");
-                island.RemoveFromClassList("island--faded");
-
-                // Resetear la posición manual que pusimos al arrastrar
-                island.style.left = StyleKeyword.Null;
-                island.style.top = StyleKeyword.Null;
-            }
-        }
-
-        private void OnPointerUp(PointerUpEvent evt)
-        {
-            if (!_isDragging) return;
-
-            _isDragging = false;
-            VisualElement target = evt.currentTarget as VisualElement;
-            target?.ReleasePointer(evt.pointerId);
-        }
-
-        // Sobrecarga para el evento PointerLeave
-        private void OnPointerUp(PointerLeaveEvent evt) => _isDragging = false;
-
-        // ════════════════════════════════════════
         private void SwitchTab(string tab)
         {
             _activeTab = tab;
@@ -393,7 +316,7 @@ namespace RootsOfLife
 
             GameSession.Instance.Save();
 
-            RefreshUpgradesUI();   // UI izquierda (lista)
+            RefreshUpgradesUI();
             ShowUpgradeInfo(GameSession.Instance.Data.GetToolLevel(_selectedTool)); // panel derecha
         }
 
@@ -403,9 +326,24 @@ namespace RootsOfLife
             {
                 int lvl = GameSession.Instance.Data.GetToolLevel(tool.Id);
 
+                // Nivel
                 var label = _root.Q<Label>($"tool-lvl-{tool.Id}");
                 if (label != null)
                     label.text = $"Lvl. {lvl}";
+
+                // Icono desde Inspector
+                var iconBtn = _root.Q($"tool-icon-{tool.Id}");
+                if (iconBtn != null)
+                {
+                    var entry = System.Array.Find(toolIcons, e => e.toolId == tool.Id);
+                    if (entry != null && entry.icon != null)
+                    {
+                        iconBtn.style.backgroundImage = new StyleBackground(entry.icon);
+                        iconBtn.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+                    }
+                }
+
+                // Barras de nivel
                 var bars = _root.Q($"bars-{tool.Id}")
                     ?.Query(className: "level-bar").ToList();
 
@@ -413,65 +351,27 @@ namespace RootsOfLife
 
                 for (int i = 0; i < bars.Count; i++)
                 {
-                    bars[i].EnableInClassList("level-bar--active", i < lvl);
+                    bars[i].EnableInClassList("level-bar--active",  i < lvl);
                     bars[i].EnableInClassList("level-bar--current", i == lvl - 1);
                 }
             }
         }
-
         private void SelectIsland(string id)
         {
-
             _selectedIsland = id;
 
-            VisualElement targetIsland = id switch
-            {
-                "central" => _islandCentral,
-                "oeste" => _islandOeste,
-                "este" => _islandEste,
-                _ => null
-            };
-
-            foreach (var island in _allIslands)
-            {
-                if (island == null) continue;
-
-                if (island == targetIsland)
-                {
-                    island.AddToClassList("island--selected");
-                    island.RemoveFromClassList("island--faded");
-                    island.style.scale = new StyleScale(new Scale(new Vector2(4f, 4f)));
-
-                }
-                else
-                {
-                    island.style.left = StyleKeyword.Null;
-                    island.style.top = StyleKeyword.Null;
-                    island.style.scale = StyleKeyword.Null;
-                    island.style.display = DisplayStyle.Flex;
-                    island.RemoveFromClassList("island--selected");
-                    island.AddToClassList("island--faded");
-                }
-            }
-
-            if (Islands.TryGetValue(id, out var islandDef))
-                SetPanelText(islandDef.Name, islandDef.Desc);
+            if (Islands.TryGetValue(id, out var island))
+                SetPanelText(island.Name, island.Desc);
 
             SetVisible(_panelBack, true);
         }
 
-
         private void DeselectAll()
         {
             _selectedIsland = "";
-            ResetMapVisuals(); 
             SwitchTab(_activeTab);
-         
         }
 
-        // ════════════════════════════════════════
-        // HELPERS
-        // ════════════════════════════════════════
 
         private void SetPanelText(string title, string desc)
         {
@@ -510,5 +410,12 @@ namespace RootsOfLife
             Name = name;
             Desc = desc;
         }
+    }
+
+    [System.Serializable]
+    public class ToolIconEntry
+    {
+        public string toolId;
+        public Sprite icon;
     }
 }

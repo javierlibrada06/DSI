@@ -4,8 +4,7 @@
         <ui:VisualElement name="screen-menu" class="screen screen--menu" style="display: flex;">
             <ui:VisualElement name="menu-left" class="menu-left">
                 <ui:VisualElement name="logo-container" class="logo-container">
-                    <ui:Label name="logo-icon" class="logo-icon" />
-                    <ui:Label name="logo-text" text="Roots&#10;of Life" class="logo-text" style="font-size: 100px; width: 70%; -unity-text-align: middle-left;" />
+                    <ui:Label name="logo-icon" class="logo-icon" style="background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Logo%20Cuadrado.png?fileID=2800000&amp;guid=d37b6afe04dcba244ac31bb0be553f58&amp;type=3#Logo Cuadrado&apos;); height: 100%; width: 75%; -unity-background-scale-mode: scale-and-crop;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="menu-buttons" class="menu-buttons">
                     <ui:Button name="btn-jugar" text="Jugar" class="btn-menu" />

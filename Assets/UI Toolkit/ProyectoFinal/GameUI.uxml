@@ -2,28 +2,28 @@
     <Style src="project://database/Assets/UI%20Toolkit/ProyectoFinal/Game.uss?fileID=7433441132597879392&amp;guid=e24be124db2d6ef448821e352131e018&amp;type=3#Game" />
     <ui:VisualElement name="game-root" class="game-root">
         <ui:VisualElement name="topbar" class="topbar">
-            <ui:Button name="tab-mapa" text="Mapa" class="tab tab--mapa     tab--active" />
-            <ui:Button name="tab-inventario" text="Inventario" class="tab tab--inventario" style="display: flex;" />
-            <ui:Button name="tab-enciclopedia" text="Enciclopedia" class="tab tab--enciclopedia" />
-            <ui:Button name="tab-mejoras" text="Mejoras" class="tab tab--mejoras" />
-            <ui:Button name="tab-ajustes" text="Ajustes" class="tab tab--ajustes" />
+            <ui:Button name="tab-mapa" text="Mapa" class="tab tab--mapa     tab--active" style="-unity-font-style: bold; -unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+            <ui:Button name="tab-inventario" text="Inventario" class="tab tab--inventario" style="display: flex; -unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
+            <ui:Button name="tab-enciclopedia" text="Enciclopedia" class="tab tab--enciclopedia" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
+            <ui:Button name="tab-mejoras" text="Mejoras" class="tab tab--mejoras" style="-unity-font-style: bold; -unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+            <ui:Button name="tab-ajustes" text="Ajustes" class="tab tab--ajustes" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
         </ui:VisualElement>
         <ui:VisualElement name="game-content" class="game-content">
-            <ui:VisualElement name="content-mapa" class="tab-content tab-content--active" style="display: flex;">
-                <ui:VisualElement name="map-area" class="map-area">
+            <ui:VisualElement name="content-mapa" class="tab-content tab-content--active" style="display: none;">
+                <ui:VisualElement name="map-area" class="map-area" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);">
                     <ui:VisualElement name="island-central" class="island island--central" style="height: 541px; width: 604px; top: 176px; left: 298px; background-color: rgba(255, 255, 255, 0); background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Isla%20Central%201.png?fileID=2800000&amp;guid=6cca71d09cfe0584b999fc1807314fcc&amp;type=3#Isla Central 1&apos;); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0);" />
                     <ui:VisualElement name="island-oeste" class="island island--oeste" style="height: 336px; width: 278px; background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Isla%20Izquierda%201.png?fileID=2800000&amp;guid=9115469393576334bbacbf2ec898a6f8&amp;type=3#Isla Izquierda 1&apos;); background-color: rgba(212, 169, 106, 0); -unity-background-scale-mode: scale-to-fit; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); left: 201px; top: 203px;" />
                     <ui:VisualElement name="island-este" class="island island--este" style="height: 288px; width: 267px; top: 241px; left: 819px; background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Isla%20Derecha%201.png?fileID=2800000&amp;guid=1c1052989d0f5f945abc25d0372486c2&amp;type=3#Isla Derecha 1&apos;); background-color: rgba(212, 169, 106, 0); border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-inventario" class="tab-content" style="display: none;">
+            <ui:VisualElement name="content-inventario" class="tab-content" style="display: flex;">
                 <ui:VisualElement name="inv-area" class="inv-area">
                     <ui:VisualElement name="inv-debug-bar" class="inv-debug-bar">
-                        <ui:Button name="btn-add-seed" text="+ Seed" class="btn-add-item" />
-                        <ui:Button name="btn-add-crop" text="+ Crop" class="btn-add-item" />
+                        <ui:Button name="btn-add-seed" text="+ Seed" class="btn-add-item" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+                        <ui:Button name="btn-add-crop" text="+ Crop" class="btn-add-item" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
                     </ui:VisualElement>
                     <ui:VisualElement name="inv-grid" class="inv-grid">
-                        <ui:VisualElement name="inv-slot-0" class="inv-slot" />
+                        <ui:VisualElement name="inv-slot-0" class="inv-slot" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
                         <ui:VisualElement name="inv-slot-1" class="inv-slot" />
                         <ui:VisualElement name="inv-slot-2" class="inv-slot" />
                         <ui:VisualElement name="inv-slot-3" class="inv-slot" />
@@ -57,12 +57,12 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="content-enciclopedia" class="tab-content" style="display: none;">
-                <ui:Label text=" Enciclopedia — próximamente" class="placeholder-label" />
+                <ui:Label text=" Enciclopedia — próximamente" class="placeholder-label" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
             </ui:VisualElement>
             <ui:VisualElement name="content-mejoras" class="tab-content" style="display: none;">
                 <ui:VisualElement name="upg-area" class="upg-area">
                     <ui:VisualElement name="tool-row-regadera" class="tool-row">
-                        <ui:Button name="tool-icon-regadera" class="tool-icon" />
+                        <ui:Button name="tool-icon-regadera" class="tool-icon" style="margin-top: 0; justify-content: center; background-image: url(&apos;project://database/Assets/images/ProyectoFinal/Herrameintas_nuevas.png?fileID=-1092308292&amp;guid=51c678f8460b53043abff0dff3ef5628&amp;type=3#Herrameintas_nuevas_6&apos;); -unity-background-scale-mode: scale-to-fit;" />
                         <ui:VisualElement name="bars-regadera" class="level-bars">
                             <ui:VisualElement class="level-bar level-bar--active level-bar--current">
                                 <ui:Label text="1" class="bar-num" />
@@ -81,8 +81,8 @@
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement class="tool-info">
-                            <ui:Label name="tool-name-regadera" text="Regadera" class="tool-name" />
-                            <ui:Label name="tool-lvl-regadera" text="Lvl. 1" class="tool-lvl" />
+                            <ui:Label name="tool-name-regadera" text="Regadera" class="tool-name" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
+                            <ui:Label name="tool-lvl-regadera" text="Lvl. 1" class="tool-lvl" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: normal;" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="tool-row-hacha" class="tool-row">
@@ -105,8 +105,8 @@
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement class="tool-info">
-                            <ui:Label name="tool-name-hacha" text="Hacha" class="tool-name" />
-                            <ui:Label name="tool-lvl-hacha" text="Lvl. 2" class="tool-lvl" />
+                            <ui:Label name="tool-name-hacha" text="Hacha" class="tool-name" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
+                            <ui:Label name="tool-lvl-hacha" text="Lvl. 2" class="tool-lvl" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="tool-row-pico" class="tool-row">
@@ -129,8 +129,8 @@
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement class="tool-info">
-                            <ui:Label name="tool-name-pico" text="Pico" class="tool-name" />
-                            <ui:Label name="tool-lvl-pico" text="Lvl. 3" class="tool-lvl" />
+                            <ui:Label name="tool-name-pico" text="Pico" class="tool-name" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
+                            <ui:Label name="tool-lvl-pico" text="Lvl. 3" class="tool-lvl" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="tool-row-azada" class="tool-row">
@@ -153,13 +153,13 @@
                             </ui:VisualElement>
                         </ui:VisualElement>
                         <ui:VisualElement class="tool-info">
-                            <ui:Label name="tool-name-azada" text="Azada" class="tool-name" />
-                            <ui:Label name="tool-lvl-azada" text="Lvl. 4" class="tool-lvl" />
+                            <ui:Label name="tool-name-azada" text="Azada" class="tool-name" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+                            <ui:Label name="tool-lvl-azada" text="Lvl. 4" class="tool-lvl" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:VisualElement name="content-ajustes" class="tab-content" style="display: none;">
+            <ui:VisualElement name="content-ajustes" class="tab-content" style="display: none; -unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);">
                 <ui:VisualElement name="settings-area" class="settings-area">
                     <ui:VisualElement name="setting-music" class="setting-row" style="width: auto; height: auto;">
                         <ui:Label text="Música" class="setting-label" />
@@ -185,17 +185,17 @@
                 </ui:VisualElement>
             </ui:VisualElement>
             <ui:VisualElement name="side-panel" class="side-panel">
-                <ui:Label name="panel-title" text="Selección" class="panel-title" />
-                <ui:Label name="panel-desc" text="En el mundo de Roots of Life, hay un montón de archipiélagos por explorar. ¿Podrás descubrir los secretos de todas sus islas?" class="panel-desc" />
+                <ui:Label name="panel-title" text="Selección" class="panel-title" style="-unity-font-style: bold; -unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+                <ui:Label name="panel-desc" text="En el mundo de Roots of Life, hay un montón de archipiélagos por explorar. ¿Podrás descubrir los secretos de todas sus islas?" class="panel-desc" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
                 <ui:VisualElement name="upg-info" class="upg-info unity-disabled">
-                    <ui:Label name="upg-level" text="Nivel: Lvl.1" class="upg-level" />
-                    <ui:Label name="upg-next" text="Siguiente mejora: 20 RC → Lvl. 2" class="upg-next" />
-                    <ui:Label name="upg-cap-curr" text="• Capacidad actual: 10" class="upg-capacity" />
-                    <ui:Label name="upg-cap-next" text="• Capacidad nueva: 20" class="upg-capacity" />
-                    <ui:Button name="btn-upgrade" text="Mejorar 20 RC" class="btn-upgrade" />
-                    <ui:Label name="upg-max-label" text="¡Nivel máximo alcanzado!" class="upg-max-label unity-disabled" />
+                    <ui:Label name="upg-level" text="Nivel: Lvl.1" class="upg-level" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
+                    <ui:Label name="upg-next" text="Siguiente mejora: 20 RC → Lvl. 2" class="upg-next" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+                    <ui:Label name="upg-cap-curr" text="• Capacidad actual: 10" class="upg-capacity" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+                    <ui:Label name="upg-cap-next" text="• Capacidad nueva: 20" class="upg-capacity" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
+                    <ui:Button name="btn-upgrade" text="Mejorar 20 RC" class="btn-upgrade" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
+                    <ui:Label name="upg-max-label" text="¡Nivel máximo alcanzado!" class="upg-max-label unity-disabled" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;);" />
                 </ui:VisualElement>
-                <ui:Button name="panel-back" text="Volver" class="panel-back-btn unity-disabled" />
+                <ui:Button name="panel-back" text="Volver" class="panel-back-btn unity-disabled" style="-unity-font-definition: url(&apos;project://database/Assets/fonts/determination%20SDF.asset?fileID=11400000&amp;guid=9f48db06203892242954bfabe28528db&amp;type=2#determination SDF&apos;); -unity-font-style: bold;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
