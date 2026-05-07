@@ -164,8 +164,10 @@
 }
 
 .island--selected {
-    border-color: rgb(240, 208, 96);
-    border-width: 4px;
+    transform-scale: 2 2; 
+    layers: 10;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-back;
 }
 
 .island--central {

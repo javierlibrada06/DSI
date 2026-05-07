@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -43,6 +44,13 @@ namespace RootsOfLife
         private string _selectedIsland = "";
 
         // inventario
+        private bool _isDragging = false;
+        private Vector3 _pointerStartPosition;
+        private Vector3 _elementStartPosition;
+
+        private List<VisualElement> _allIslands = new();
+
+        // ── INVENTARIO ──────────────────────────
         private InventoryUIController _inventoryUI;
         private Button _btnAddSeed;
         private Button _btnAddCrop;
@@ -109,6 +117,7 @@ namespace RootsOfLife
             _islandCentral = _root.Q("island-central");
             _islandOeste = _root.Q("island-oeste");
             _islandEste = _root.Q("island-este");
+            _allIslands = new List<VisualElement> { _islandCentral, _islandOeste, _islandEste };
 
             // Ajustes
             _sliderMusic    = _root.Q<Slider>("slider-music");
@@ -136,6 +145,16 @@ namespace RootsOfLife
             _islandCentral?.RegisterCallback<ClickEvent>(_ => SelectIsland("central"));
             _islandOeste?.RegisterCallback<ClickEvent>(_ => SelectIsland("oeste"));
             _islandEste?.RegisterCallback<ClickEvent>(_ => SelectIsland("este"));
+
+            foreach (var island in _allIslands)
+            {
+                if (island == null) continue;
+
+                island.RegisterCallback<PointerDownEvent>(OnPointerDown);
+                island.RegisterCallback<PointerMoveEvent>(OnPointerMove);
+                island.RegisterCallback<PointerUpEvent>(OnPointerUp);
+                island.RegisterCallback<PointerLeaveEvent>(OnPointerUp);
+            }
 
             // Panel
             _panelBack?.RegisterCallback<ClickEvent>(_ => DeselectAll());
@@ -221,6 +240,68 @@ namespace RootsOfLife
             Debug.Log($"Inventario lleno, no se pudo añadir '{itemId}'.");
         }
 
+        private void OnPointerDown(PointerDownEvent evt)
+        {
+            VisualElement target = evt.currentTarget as VisualElement;
+
+            if (target == null || !target.ClassListContains("island--selected")) return;
+
+            _isDragging = true;
+            _pointerStartPosition = evt.position;
+            _elementStartPosition = target.transform.position;
+
+            target.CapturePointer(evt.pointerId);
+            evt.StopPropagation();
+        }
+
+        private void OnPointerMove(PointerMoveEvent evt)
+        {
+            if (!_isDragging) return;
+
+            VisualElement target = evt.currentTarget as VisualElement;
+            if (target == null) return;
+
+            Vector3 delta = (Vector3)(evt.position - _pointerStartPosition);
+
+            target.style.left = _elementStartPosition.x + delta.x;
+            target.style.top = _elementStartPosition.y + delta.y;
+        }
+
+        private void ResetMapVisuals()
+        {
+            foreach (var island in _allIslands)
+            {
+                if (island == null) continue;
+
+                island.style.left = StyleKeyword.Null;
+                island.style.top = StyleKeyword.Null;
+                island.style.scale = StyleKeyword.Null;
+                island.style.display = DisplayStyle.Flex;
+                if (island.ClassListContains("island--selected")) island.style.scale = new StyleScale(new Scale(new Vector2(1f, 1f)));
+
+                
+                island.RemoveFromClassList("island--selected");
+                island.RemoveFromClassList("island--faded");
+
+                // Resetear la posición manual que pusimos al arrastrar
+                island.style.left = StyleKeyword.Null;
+                island.style.top = StyleKeyword.Null;
+            }
+        }
+
+        private void OnPointerUp(PointerUpEvent evt)
+        {
+            if (!_isDragging) return;
+
+            _isDragging = false;
+            VisualElement target = evt.currentTarget as VisualElement;
+            target?.ReleasePointer(evt.pointerId);
+        }
+
+        // Sobrecarga para el evento PointerLeave
+        private void OnPointerUp(PointerLeaveEvent evt) => _isDragging = false;
+
+        // ════════════════════════════════════════
         private void SwitchTab(string tab)
         {
             _activeTab = tab;
@@ -322,11 +403,9 @@ namespace RootsOfLife
             {
                 int lvl = GameSession.Instance.Data.GetToolLevel(tool.Id);
 
-                // actualizar texto
                 var label = _root.Q<Label>($"tool-lvl-{tool.Id}");
                 if (label != null)
                     label.text = $"Lvl. {lvl}";
-                // actualizar barras si las tienes en UI
                 var bars = _root.Q($"bars-{tool.Id}")
                     ?.Query(className: "level-bar").ToList();
 
@@ -342,19 +421,58 @@ namespace RootsOfLife
 
         private void SelectIsland(string id)
         {
+
             _selectedIsland = id;
 
-            if (Islands.TryGetValue(id, out var island))
-                SetPanelText(island.Name, island.Desc);
+            VisualElement targetIsland = id switch
+            {
+                "central" => _islandCentral,
+                "oeste" => _islandOeste,
+                "este" => _islandEste,
+                _ => null
+            };
+
+            foreach (var island in _allIslands)
+            {
+                if (island == null) continue;
+
+                if (island == targetIsland)
+                {
+                    island.AddToClassList("island--selected");
+                    island.RemoveFromClassList("island--faded");
+                    island.style.scale = new StyleScale(new Scale(new Vector2(4f, 4f)));
+
+                }
+                else
+                {
+                    island.style.left = StyleKeyword.Null;
+                    island.style.top = StyleKeyword.Null;
+                    island.style.scale = StyleKeyword.Null;
+                    island.style.display = DisplayStyle.Flex;
+                    island.RemoveFromClassList("island--selected");
+                    island.AddToClassList("island--faded");
+                }
+            }
+
+            if (Islands.TryGetValue(id, out var islandDef))
+                SetPanelText(islandDef.Name, islandDef.Desc);
 
             SetVisible(_panelBack, true);
         }
 
+
         private void DeselectAll()
         {
             _selectedIsland = "";
+            ResetMapVisuals(); 
             SwitchTab(_activeTab);
+         
         }
+
+        // ════════════════════════════════════════
+        // HELPERS
+        // ════════════════════════════════════════
+
         private void SetPanelText(string title, string desc)
         {
             _panelTitle.text = title;

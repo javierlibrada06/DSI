@@ -11,13 +11,13 @@
         <ui:VisualElement name="game-content" class="game-content">
             <ui:VisualElement name="content-mapa" class="tab-content tab-content--active" style="display: flex;">
                 <ui:VisualElement name="map-area" class="map-area">
-                    <ui:VisualElement name="island-central" class="island island--central">
+                    <ui:VisualElement name="island-central" class="island island--central" style="height: 553px; width: 636px; top: 168px; left: 332px;">
                         <ui:Label text="Central" class="island-label" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="island-oeste" class="island island--oeste">
+                    <ui:VisualElement name="island-oeste" class="island island--oeste" style="height: 237px; width: 250px;">
                         <ui:Label text="Oeste" class="island-label" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="island-este" class="island island--este">
+                    <ui:VisualElement name="island-este" class="island island--este" style="height: 279px; width: 208px; top: 90px; left: 1056px;">
                         <ui:Label text="Este" class="island-label" />
                     </ui:VisualElement>
                 </ui:VisualElement>
